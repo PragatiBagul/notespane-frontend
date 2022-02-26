@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { FacebookLoginButton, GoogleLoginButton, GithubLoginButton } from "react-social-login-buttons";
 import { Card, CardActions, List, ListItem } from "@mui/material";
 import EmailIcon from '@mui/icons-material/Email';
+import { userSignJWTVerification } from "../utils/RequestEndPoints";
 const Login = () => {
   const { SendSignInLinkToEmail, googleSignIn, githubSignIn, facebookSignIn } =
     useAuth();
@@ -18,7 +19,10 @@ const Login = () => {
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
     try {
-      await googleSignIn();
+      const res = await googleSignIn();
+
+      //const response = userSignJWTVerification(res.user);
+      
       navigate("/");
     } catch (err) {
       console.log(err.message);
@@ -29,7 +33,9 @@ const Login = () => {
   const handleGithubSignIn = async (e) => {
     e.preventDefault();
     try {
-      await githubSignIn();
+      const res = await githubSignIn(res.user);
+      //const response = userSignJWTVerification(res.user);
+      
       navigate("/");
     } catch (err) {
       console.log(err.message);
@@ -40,7 +46,8 @@ const Login = () => {
   const handleFacebookSignIn = async (e) => {
     e.preventDefault();
     try {
-      await facebookSignIn();
+      const res = await facebookSignIn();
+      //const response = userSignJWTVerification(res.user);
       navigate("/");
     } catch (err) {
       console.log(err.message);
