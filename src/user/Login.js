@@ -20,9 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await googleSignIn();
-
-      //const response = userSignJWTVerification(res.user);
-      
+      const response = await userSignJWTVerification(res.user);
       navigate("/");
     } catch (err) {
       console.log(err.message);
@@ -33,9 +31,8 @@ const Login = () => {
   const handleGithubSignIn = async (e) => {
     e.preventDefault();
     try {
-      const res = await githubSignIn(res.user);
-      //const response = userSignJWTVerification(res.user);
-      
+      const res = await githubSignIn();
+      const response = await userSignJWTVerification(res.user);
       navigate("/");
     } catch (err) {
       console.log(err.message);
@@ -47,7 +44,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await facebookSignIn();
-      //const response = userSignJWTVerification(res.user);
+      const response = await userSignJWTVerification(res.user);
       navigate("/");
     } catch (err) {
       console.log(err.message);
@@ -92,7 +89,7 @@ const Login = () => {
           </ListItem>
             </form>
           <ListItem>
-          <GoogleLoginButton variant="outlined" onClick={handleGoogleSignIn}/>
+          <GoogleLoginButton onClick={handleGoogleSignIn}/>
           </ListItem>
           <ListItem>
           <GithubLoginButton onClick={handleGithubSignIn}/>

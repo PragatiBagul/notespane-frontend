@@ -5,6 +5,8 @@ import Login from './user/Login';
 import Confirm from "./user/Confirm";
 import { AuthProvider } from "./hooks/useAuth";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import FeaturesNavigation from './home/FeaturesNavigation';
+import UserProfile from './user/UserProfile';
 function App() {
   return (
     <div className="App">
@@ -13,8 +15,10 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={
-              <Home />
+              element={
+            <>
+            <UserProfile/>
+                  </>
           }
         />
         <Route path="/login" element={<Login />} />

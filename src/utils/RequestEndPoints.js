@@ -1,5 +1,5 @@
 import request from "./Request";
-
+import { useState } from "react";
 export const userSignJWTVerification = (user) => {
     const body = {
         "Name": user.displayName,
@@ -7,7 +7,7 @@ export const userSignJWTVerification = (user) => {
         "PhotoURL": user.photoURL,
         "id":user.uid
     }
-    const requestUrl = 'http://localhost:8080/api/user';
+    const requestUrl = 'http://localhost:8080/user';
     const options = {
         method: 'POST',
         headers: {
@@ -16,6 +16,19 @@ export const userSignJWTVerification = (user) => {
         },
         body: body,
     };
-    const response = request(requestUrl, options);
-    return response;
+    const res = request(requestUrl, options).then(response => response.data);    
+    return res;
 };
+
+export const fetchUserProfile = (user) => {
+    const requestUrl = 'http://localhost:8080/user/';
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);    
+    return res;
+}
