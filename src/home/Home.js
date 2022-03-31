@@ -1,5 +1,6 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
+import { fetchData } from "../utils/RequestEndPoints";
 import {
   Switch,
   Tooltip,
@@ -95,7 +96,7 @@ export default function Home() {
   };
 
   const [action, setAction] = useState("home");
-
+  const [data, setData] = useState();
   const setActionTest = (value) => {
     setAction(value);
     console.log(action);
@@ -235,7 +236,7 @@ export default function Home() {
         </Container>
                 </AppBar>
       <Container>
-        {action == "profile" && <UserProfile />}
+        {action == "profile" && <UserProfile data={ data}/>}
         {action == "home" && <FeaturesNavigation />}
         </Container>
     </Box>

@@ -5,9 +5,28 @@ import { useAuth } from "../hooks/useAuth";
 import Alert from "@mui/material/Alert";
 import { useNavigate } from "react-router-dom";
 import { FacebookLoginButton, GoogleLoginButton, GithubLoginButton } from "react-social-login-buttons";
-import { Card, CardActions, List, ListItem } from "@mui/material";
+import { Container,Card,Box, CardActions, List, ListItem, CardContent, Typography } from "@mui/material";
 import EmailIcon from '@mui/icons-material/Email';
 import { userSignJWTVerification } from "../utils/RequestEndPoints";
+import Avatar from '@mui/material/Avatar';
+import CssBaseline from '@mui/material/CssBaseline';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Link from '@mui/material/Link';
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
+const theme = createTheme();
 const Login = () => {
   const { SendSignInLinkToEmail, googleSignIn, githubSignIn, facebookSignIn } =
     useAuth();
@@ -64,7 +83,35 @@ const Login = () => {
     }
   };
   return (
-    <Card style={{width:"fit-content"}}>
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <Box
+          mt={10}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+      <CssBaseline />
+    <Card style={{ width: "fit-content" }}>
+            <CardContent>
+            <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+      <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign in
+                </Typography>
+                </Box>
+      </CardContent>
+
       <CardActions>
         <List>
           {error && <ListItem><Alert severity="error">{error}</Alert></ListItem>}
@@ -75,7 +122,7 @@ const Login = () => {
           <ListItem>
           <TextField
             id="outlined-basic"
-            label="email"
+            label="Email"
             variant="outlined"
             value={email}
                 onInput={(e) => setEmail(e.target.value)}
@@ -99,7 +146,10 @@ const Login = () => {
           </ListItem>
         </List>
       </CardActions>
-</Card>
+          </Card>
+          </Box>
+      </Container>
+      </ThemeProvider>
   );
 };
 

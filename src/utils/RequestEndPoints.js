@@ -20,7 +20,7 @@ export const userSignJWTVerification = (user) => {
     return res;
 };
 
-export const fetchUserProfile = (user) => {
+export const fetchUserProfile = async() => {
     const requestUrl = 'http://localhost:8080/user/';
     const options = {
         method: 'GET',
@@ -29,6 +29,20 @@ export const fetchUserProfile = (user) => {
             'Content-Type': 'application/json',
         },
     };
-    const res = request(requestUrl, options).then(response => response.data);    
+    const res = await request(requestUrl, options).then(response => response.data);    
+    return res;
+}
+
+export const updateUserDetails = async (body) => {
+    const requestUrl = 'http://localhost:8080/user/update';
+    const options = {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: body,
+    };
+    const res = await request(requestUrl, options).then(response => response.data);    
     return res;
 }
