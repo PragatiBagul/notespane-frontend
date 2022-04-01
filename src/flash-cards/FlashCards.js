@@ -1,5 +1,7 @@
+import SingleChoiceQuestion from "./SingleChoiceQuestion";
+import ViewAllFlashCards from "./ViewAllFlashCards";
 const FlashCards = () => {
-  return <h1>Flash Cards</h1>;
+  return (<SingleChoiceQuestion/>);
 };
 
 export default FlashCards;

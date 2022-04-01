@@ -5,6 +5,7 @@ import Login from './user/Login';
 import Confirm from "./user/Confirm";
 import { AuthProvider } from "./hooks/useAuth";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import FlashCards from './flash-cards/FlashCards';
 function App() {
   return (
     <div className="App">
@@ -14,7 +15,7 @@ function App() {
         <Route
           path="/"
               element={
-          <Home/>
+          <FlashCards/>
           }
         />
         <Route path="/login" element={<Login />} />
