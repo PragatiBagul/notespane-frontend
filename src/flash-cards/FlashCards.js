@@ -1,5 +1,4 @@
-import SingleChoiceQuestion from "./SingleChoiceQuestion";
-import ViewAllFlashCards from "./ViewAllFlashCards";
+import SingleChoiceQuestion from "../questionTypes/SingleChoiceQuestion";
 const FlashCards = () => {
   return (<SingleChoiceQuestion/>);
 };
