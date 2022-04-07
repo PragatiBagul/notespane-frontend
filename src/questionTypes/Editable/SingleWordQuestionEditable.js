@@ -7,8 +7,8 @@ const SingleWordQuestionEditable = ({question, setQuestion,answer, setAnswer}) =
     }
     return (
         <>
-        <TextField id="question" label="Question" variant="standard" value={question} onChange={e => setQuestion(e.target.value)} fullWidth required/>
-            <TextField id="standard-basic" label="Answer" variant="standard" value={answer} onChange={(e) => limitToSingleWord(e.target.value)}  fullWidth required/>
+        <TextField id="question" label="Question" variant="standard" value={question} onChange={e => setQuestion(e.target.value)} fullWidth required={true}/>
+            <TextField id="standard-basic" label="Answer" variant="standard" value={answer} onChange={(e) => limitToSingleWord(e.target.value)}  fullWidth required={true}/>
             </>);
 }
  

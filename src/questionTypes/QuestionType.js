@@ -17,7 +17,6 @@ const QuestionType = ({flashCards,setFlashCards,id}) => {
         if (questionType === "swq")
         {
             flashCard = {
-                "id":String(id),
                 "questionType":questionType,
                 "question": question,
                 "answer":answer
@@ -26,7 +25,6 @@ const QuestionType = ({flashCards,setFlashCards,id}) => {
         if (questionType === "mwq")
         {
             flashCard = {
-                "id":String(id),
                 "questionType":questionType,
                 "question": question,
                 "options": options,
@@ -36,7 +34,6 @@ const QuestionType = ({flashCards,setFlashCards,id}) => {
         if (questionType === "scq")
         {
             flashCard = {
-                "id":String(id),
                 "questionType":questionType,
                 "question": question,
                 "options": options,
@@ -46,19 +43,23 @@ const QuestionType = ({flashCards,setFlashCards,id}) => {
         if (questionType === "mcq")
         {
             flashCard = {
-                "id":String(id),
                 "questionType":questionType,
                 "question": question,
                 "options": options,
                 "answers":answers
             };
         }
-        await deleteFlashCard();
-        setFlashCards([...flashCards,flashCard]);
+        let newArr = [...flashCards]; // copying the old datas array
+        newArr[id] = flashCard; // replace e.target.value with whatever you want to change it to
+        setFlashCards(newArr);
     }
     const deleteFlashCard = async() => {
-        setFlashCards(flashCards.filter((flashCard) => flashCard.id != id));
+        setFlashCards(flashCards.filter((flashCard,index) => index != id));
+        console.log("Deleted successfully ");
     }
+    useEffect(() => {
+        submit();
+    },[question,options,answers,answer,questionType]);
     return (
         <Card style={{margin:"2"}}>
             <CardContent>

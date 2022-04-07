@@ -31,7 +31,6 @@ const NewFlashCards = () => {
               <QuestionType id={ index} key={index} flashCards={flashCards} setFlashCards={ setFlashCards}/>
             ))}
         <NewFlashCardThumbnail  flashCards={flashCards} setFlashCards={ setFlashCards} />
-        <Button onClick={click}>Click</Button>
       </Stack>
     </Container>);
 }
