@@ -18,8 +18,11 @@ const UserProfile = () => {
     
     const { user, isAuthenticating } = useAuth();
 
-    useEffect(async() => {
-        const res = await fetchUserProfile();
+    useEffect(() => {
+        var res;
+        const fetchData = async () => {
+            res = await fetchUserProfile();   
+        }
         setEmail(res.email);
         setUid(res.uid);
         setName(res.name);

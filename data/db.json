@@ -1,0 +1,288 @@
+{
+  "flashCards": [
+    {
+      "title": "Stack Operations ",
+      "description": "Data Structure Questions and Answers – Stack Operations – 1",
+      "flashCards": [
+        {
+          "id": 48.75252159431509,
+          "questionType": "swq",
+          "question": "",
+          "answer": ""
+        },
+        {
+          "id": 48.75252159431509,
+          "questionType": "swq",
+          "question": "Process of inserting an element in stack is called ____________",
+          "answer": ""
+        },
+        {
+          "id": 48.75252159431509,
+          "questionType": "swq",
+          "question": "Process of inserting an element in stack is called ____________",
+          "answer": "p"
+        },
+        {
+          "id": 48.75252159431509,
+          "questionType": "swq",
+          "question": "Process of inserting an element in stack is called ____________",
+          "answer": "pu"
+        },
+        {
+          "id": 48.75252159431509,
+          "questionType": "swq",
+          "question": "Process of inserting an element in stack is called ____________",
+          "answer": "pus"
+        },
+        {
+          "id": 48.75252159431509,
+          "questionType": "swq",
+          "question": "Process of inserting an element in stack is called ____________",
+          "answer": "push"
+        },
+        {
+          "id": 27.517740395233314,
+          "questionType": "swq",
+          "question": "",
+          "answer": ""
+        },
+        {
+          "id": 27.517740395233314,
+          "questionType": "swq",
+          "question": "In a stack, if a user tries to remove an element from an empty stack it is called _________",
+          "answer": ""
+        },
+        {
+          "id": 27.517740395233314,
+          "questionType": "swq",
+          "question": "In a stack, if a user tries to remove an element from an empty stack it is called _________",
+          "answer": "Underflow"
+        },
+        {
+          "id": 48.19988183780279,
+          "questionType": "swq",
+          "question": "",
+          "answer": ""
+        },
+        {
+          "id": 48.19988183780279,
+          "questionType": "swq",
+          "question": "Entries in a stack are “ordered”. What is the meaning of this statement?",
+          "answer": ""
+        },
+        {
+          "id": 27.517740395233314,
+          "questionType": "mwq",
+          "question": "In a stack, if a user tries to remove an element from an empty stack it is called _________",
+          "options": [],
+          "answer": "Underflow"
+        },
+        {
+          "id": 27.517740395233314,
+          "questionType": "mwq",
+          "question": "In a stack, if a user tries to remove an element from an empty stack it is called _________",
+          "options": [],
+          "answer": "Under flow"
+        },
+        {
+          "id": 48.19988183780279,
+          "questionType": "scq",
+          "question": "Entries in a stack are “ordered”. What is the meaning of this statement?",
+          "options": [],
+          "answer": ""
+        },
+        {
+          "id": 48.19988183780279,
+          "questionType": "scq",
+          "question": "Entries in a stack are “ordered”. What is the meaning of this statement?",
+          "options": [
+            " A collection of stacks is sortable"
+          ],
+          "answer": ""
+        },
+        {
+          "id": 48.19988183780279,
+          "questionType": "scq",
+          "question": "Entries in a stack are “ordered”. What is the meaning of this statement?",
+          "options": [
+            " A collection of stacks is sortable",
+            "Stack entries may be compared with the ‘<‘ operation"
+          ],
+          "answer": ""
+        },
+        {
+          "id": 48.19988183780279,
+          "questionType": "scq",
+          "question": "Entries in a stack are “ordered”. What is the meaning of this statement?",
+          "options": [
+            " A collection of stacks is sortable",
+            "Stack entries may be compared with the ‘<‘ operation",
+            "The entries are stored in a linked list"
+          ],
+          "answer": ""
+        },
+        {
+          "id": 48.19988183780279,
+          "questionType": "scq",
+          "question": "Entries in a stack are “ordered”. What is the meaning of this statement?",
+          "options": [
+            " A collection of stacks is sortable",
+            "Stack entries may be compared with the ‘<‘ operation",
+            "The entries are stored in a linked list",
+            "There is a Sequential entry that is one by one"
+          ],
+          "answer": ""
+        },
+        {
+          "id": 48.19988183780279,
+          "questionType": "scq",
+          "question": "Entries in a stack are “ordered”. What is the meaning of this statement?",
+          "options": [
+            " A collection of stacks is sortable",
+            "Stack entries may be compared with the ‘<‘ operation",
+            "The entries are stored in a linked list",
+            "There is a Sequential entry that is one by one"
+          ],
+          "answer": "There is a Sequential entry that is one by one"
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "swq",
+          "question": "",
+          "answer": ""
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "swq",
+          "question": "Consider the usual algorithm for determining whether a sequence of parentheses is balanced. Suppose that you run the algorithm on a sequence that contains 2 left parentheses and 3 right parentheses (in some order). The maximum number of parentheses that appear on the stack AT ANY ONE TIME during the computation?",
+          "answer": ""
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "mcq",
+          "question": "Consider the usual algorithm for determining whether a sequence of parentheses is balanced. Suppose that you run the algorithm on a sequence that contains 2 left parentheses and 3 right parentheses (in some order). The maximum number of parentheses that appear on the stack AT ANY ONE TIME during the computation?",
+          "options": [],
+          "answers": []
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "mcq",
+          "question": "Consider the usual algorithm for determining whether a sequence of parentheses is balanced. Suppose that you run the algorithm on a sequence that contains 2 left parentheses and 3 right parentheses (in some order). The maximum number of parentheses that appear on the stack AT ANY ONE TIME during the computation?",
+          "options": [
+            "1"
+          ],
+          "answers": []
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "mcq",
+          "question": "Consider the usual algorithm for determining whether a sequence of parentheses is balanced. Suppose that you run the algorithm on a sequence that contains 2 left parentheses and 3 right parentheses (in some order). The maximum number of parentheses that appear on the stack AT ANY ONE TIME during the computation?",
+          "options": [
+            "1",
+            "2"
+          ],
+          "answers": []
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "mcq",
+          "question": "Consider the usual algorithm for determining whether a sequence of parentheses is balanced. Suppose that you run the algorithm on a sequence that contains 2 left parentheses and 3 right parentheses (in some order). The maximum number of parentheses that appear on the stack AT ANY ONE TIME during the computation?",
+          "options": [
+            "1",
+            "2",
+            "One"
+          ],
+          "answers": []
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "mcq",
+          "question": "Consider the usual algorithm for determining whether a sequence of parentheses is balanced. Suppose that you run the algorithm on a sequence that contains 2 left parentheses and 3 right parentheses (in some order). The maximum number of parentheses that appear on the stack AT ANY ONE TIME during the computation?",
+          "options": [
+            "1",
+            "2",
+            "One",
+            "None of these"
+          ],
+          "answers": []
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "mcq",
+          "question": "Consider the usual algorithm for determining whether a sequence of parentheses is balanced. Suppose that you run the algorithm on a sequence that contains 2 left parentheses and 3 right parentheses (in some order). The maximum number of parentheses that appear on the stack AT ANY ONE TIME during the computation?",
+          "options": [
+            "1",
+            "2",
+            "One",
+            "None of these"
+          ],
+          "answers": [
+            "One"
+          ]
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "mcq",
+          "question": "Consider the usual algorithm for determining whether a sequence of parentheses is balanced. Suppose that you run the algorithm on a sequence that contains 2 left parentheses and 3 right parentheses (in some order). The maximum number of parentheses that appear on the stack AT ANY ONE TIME during the computation?",
+          "options": [
+            "1",
+            "2",
+            "One",
+            "None of these"
+          ],
+          "answers": [
+            "One"
+          ]
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "mcq",
+          "question": "Consider the usual algorithm for determining whether a sequence of parentheses is balanced. Suppose that you run the algorithm on a sequence that contains 2 left parentheses and 3 right parentheses (in some order). The maximum number of parentheses that appear on the stack AT ANY ONE TIME during the computation?",
+          "options": [
+            "1",
+            "2",
+            "One",
+            "None of these"
+          ],
+          "answers": [
+            "One",
+            "2"
+          ]
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "mcq",
+          "question": "Consider the usual algorithm for determining whether a sequence of parentheses is balanced. Suppose that you run the algorithm on a sequence that contains 2 left parentheses and 3 right parentheses (in some order). The maximum number of parentheses that appear on the stack AT ANY ONE TIME during the computation?",
+          "options": [
+            "1",
+            "2",
+            "One",
+            "None of these"
+          ],
+          "answers": [
+            "One",
+            "2",
+            "Two"
+          ]
+        },
+        {
+          "id": 18.28599904018986,
+          "questionType": "mcq",
+          "question": "Consider the usual algorithm for determining whether a sequence of parentheses is balanced. Suppose that you run the algorithm on a sequence that contains 2 left parentheses and 3 right parentheses (in some order). The maximum number of parentheses that appear on the stack AT ANY ONE TIME during the computation?",
+          "options": [
+            "1",
+            "2",
+            "One",
+            "None of these"
+          ],
+          "answers": [
+            "One",
+            "2",
+            "Two"
+          ]
+        }
+      ],
+      "id": 1
+    }
+  ]
+}

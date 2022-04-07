@@ -1,8 +1,14 @@
 import { Grid,Card,CardContent,Button } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
-const NewFlashCardThumbnail = ({ n, setN }) => {
+const NewFlashCardThumbnail = ({ flashCards,setFlashCards }) => {
     const addFlashCard = () => {
-        setN(n + 1);
+        const defaultFlashCard = {
+            "id":String(flashCards.length),
+            "questionType":"",
+            "question": String(flashCards.length),
+            "answer":""
+        }
+        setFlashCards([...flashCards,defaultFlashCard]);
     }
     return (
                 <Button variant="outlined" onClick={addFlashCard}>

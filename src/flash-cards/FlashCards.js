@@ -1,8 +1,9 @@
-//import SingleChoiceQuestion from "../questionTypes/SingleChoiceQuestion";
-import CreateNewFlashCard from "./Creation/CreateNewFlashCards";
-//import SingleChoiceQuestionEditable from "../questionTypes/SingleChoiceQuestionEditable";
+import ViewAllFlashCards from "./View/ViewAllFlashCards";
+import { BottomNavigation,BottomNavigationAction } from "@mui/material";
 const FlashCards = () => {
-  return (<CreateNewFlashCard/>);
+  return (
+    <ViewAllFlashCards />
+  );
 };
 
 export default FlashCards;

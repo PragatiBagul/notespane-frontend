@@ -5,9 +5,6 @@ import Login from './user/Login';
 import Confirm from "./user/Confirm";
 import { AuthProvider } from "./hooks/useAuth";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import FlashCards from './flash-cards/FlashCards';
-import QuestionType from './questionTypes/QuestionType';
-import CreateNewFlashCards from './flash-cards/Creation/CreateNewFlashCards';
 import NewFlashCards from './flash-cards/Creation/NewFlashCards';
 function App() {
   return (

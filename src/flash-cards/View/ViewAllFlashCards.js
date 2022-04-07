@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FlashCardThumbnail from "./FlashCardThumbnail";
-import { Container,Grid } from "@mui/material";
+import { Container, Grid, Fab } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 const ViewAllFlashCards = () => {
     const [flashCards, setFlashCards] = useState([
         {"id":1,"title":"Title 1","description":"Description 1"},
@@ -15,6 +16,9 @@ const ViewAllFlashCards = () => {
         <Grid container spacing={2}>{flashCards.map((flashCard, index) => (
         <FlashCardThumbnail flashCard={flashCard} />
         ))}</Grid>
+            <Fab color="primary" aria-label="add" style={{ position: "absolute",right: "0",bottom: "0",margin:"2.5%" }}>
+  <AddIcon />
+</Fab>
             </Container>);
 }
  

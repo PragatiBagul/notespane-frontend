@@ -1,12 +1,7 @@
-import { Card,CardContent,CardActions,TextField,Button } from "@mui/material";
+import { Card, CardContent, CardActions, TextField, Button, Stack, InputLabel,FormControl,Select,MenuItem } from "@mui/material";
 import { useState } from "react";
 
-const CreateNewFlashCards = () => {
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const proceed = () => {
-
-    }
+const CreateNewFlashCards = ({title,setTitle,description,setDescription,saveFlashCards,mode,setMode}) => {
     return (
             <Card>
                 <CardContent>
@@ -22,8 +17,23 @@ const CreateNewFlashCards = () => {
                              fullWidth required 
         />
                 </CardContent>
-                <CardActions>
-                    <Button variant="contained" onClick={proceed }>Proceed</Button>
+                    <CardActions>
+                            <Stack direction="row" spacing={2}>
+                            <FormControl fullWidth>
+  <InputLabel id="demo-simple-select-label">Mode</InputLabel>
+  <Select
+    labelId="demo-simple-select-label"
+    id="demo-simple-select"
+                                                    value={mode}
+    label="Mode"
+    onChange={(e) => setMode(e.target.value)}
+  >
+    <MenuItem value={"public"}>Public</MenuItem>
+    <MenuItem value={"private"}>Private</MenuItem>
+  </Select>
+</FormControl>
+                                    <Button variant="contained" onClick={saveFlashCards}>Save</Button>
+                                    </Stack>
                 </CardActions>
         </Card>);
 }

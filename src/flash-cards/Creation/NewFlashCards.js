@@ -1,21 +1,39 @@
-import { Container, Stack,Divider } from "@mui/material";
+import { Container, Stack,Divider,Button } from "@mui/material";
 import QuestionType from "../../questionTypes/QuestionType";
 import NewFlashCardThumbnail from "./NewFlashCardThumbnail";
 import { useState } from "react";
 import CreateNewFlashCards from "./CreateNewFlashCards";
 const NewFlashCards = () => {
-    const [flashCards, setFlashCards] = useState([]);
-    const [n, setN] = useState(0);
+    const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [mode, setMode] = useState("public");
+  const [flashCards, setFlashCards] = useState([]);
+
+    const saveFlashCards = () => {
+        const body = { title, description, flashCards };
+        fetch(' http://localhost:8000/flashCards/', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    }).then(() => {
+      console.log('new flash card added');
+    })
+    }
+  
+    const click = () => {
+      console.log(flashCards);
+  }
     return (<Container>
         <Stack spacing={2}>
-            <CreateNewFlashCards />
+        <CreateNewFlashCards mode={mode} setMode={ setMode} title={title} setTitle={setTitle} description={description} setDescription={ setDescription} saveFlashCards={ saveFlashCards}/>
             <Divider />
-            {n > 0 && [...Array(n)].map((flashCard,index) => (
-                <QuestionType key={ index}/>
+            {flashCards.map((flashCard,index) => (
+              <QuestionType id={ index} key={index} flashCards={flashCards} setFlashCards={ setFlashCards}/>
             ))}
-            <NewFlashCardThumbnail n={n} setN={ setN }/>
-        </Stack>
-        </Container>);
+        <NewFlashCardThumbnail  flashCards={flashCards} setFlashCards={ setFlashCards} />
+        <Button onClick={click}>Click</Button>
+      </Stack>
+    </Container>);
 }
  
 export default NewFlashCards;
