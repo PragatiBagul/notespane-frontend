@@ -1,20 +1,27 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import FlashCardThumbnail from "./FlashCardThumbnail";
 import { Container, Grid, Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-const ViewAllFlashCards = ({setView }) => {
-    const [flashCards, setFlashCards] = useState([
-        {"id":1,"title":"Title 1","description":"Description 1"},
-        { "id": 2, "title":"Title 2", "description":"Description 2"},
-        { "id": 3, "title":"Title 3", "description":"Description 3"},
-        {"id":4,"title":"Title 4","description":"Description 4"},
-        { "id": 5, "title":"Title 5", "description":"Description 5"},
-        {"id":6,"title":"Title 6","description":"Description 6"}
-    ]);
+const ViewAllFlashCards = ({setView,setId }) => {
+    const [flashCards, setFlashCards] = useState([]);
+    const [isPending, setIsPending] = useState(true);
+    useEffect(() => {
+        setTimeout(() => {
+            fetch('http://localhost:8000/flashCards')
+                .then(res => {
+                    return res.json();
+                })
+                .then(data => {
+                    setFlashCards(data.filter((flashCard,index) => flashCard.mode === "public"));
+                    setIsPending(false);
+                })
+        }, 1000);
+    }, []);
+    
     return (
         <Container>
-        <Grid container spacing={2}>{flashCards.map((flashCard, index) => (
-        <FlashCardThumbnail key={index} flashCard={flashCard} />
+        <Grid container spacing={2}>{!isPending && flashCards.map((flashCard, index) => (
+            <FlashCardThumbnail key={index} flashCard={flashCard} setView={setView} setId={setId}/>
         ))}</Grid>
             <Fab color="primary" aria-label="add" style={{ position: "absolute",right: "0",bottom: "0",margin:"2.5%" }} onClick={() => setView("create")}>
   <AddIcon />

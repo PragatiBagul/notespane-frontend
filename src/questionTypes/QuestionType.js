@@ -97,7 +97,6 @@ const QuestionType = ({flashCards,setFlashCards,id}) => {
                         <MenuItem value={"mcq"}>Multiple Choice Question</MenuItem>
                             </Select>
                     </FormControl>
-                    <Button onClick={ submit }>Add</Button>
                     <IconButton flex="end" onClick={deleteFlashCard}>
                         <DeleteIcon/>
                     </IconButton>

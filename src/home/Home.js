@@ -1,6 +1,7 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import { fetchData } from "../utils/RequestEndPoints";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {
   Switch,
   Tooltip,
@@ -98,6 +99,7 @@ export default function Home() {
 
   const [action, setAction] = useState("home");
   const [data, setData] = useState();
+  const [currentNavigation, setCurrentNavigation] = useState();
   const setActionTest = (value) => {
     setAction(value);
     console.log(action);
@@ -116,7 +118,7 @@ export default function Home() {
               edge="start"
               onClick={() => setActionTest("home")}
             >
-              Notespane
+              Notespane <ChevronRightIcon  fontSize="large"/> {currentNavigation}
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -171,7 +173,7 @@ export default function Home() {
               edge="start"
               onClick={() => setActionTest("home")}
             >
-              Notespane
+              Notespane  <ChevronRightIcon fontSize="large"/> {currentNavigation}
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {/*pages.map((page) => (
@@ -238,7 +240,7 @@ export default function Home() {
                 </AppBar>
       <Container>
         {action == "profile" && <UserProfile data={ data}/>}
-        {action == "home" && <FeaturesNavigation />}
+        {action == "home" && <FeaturesNavigation setCurrentNavigation={ setCurrentNavigation}/>}
         </Container>
     </Box>
   );

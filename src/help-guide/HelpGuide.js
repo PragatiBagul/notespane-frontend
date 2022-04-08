@@ -13,8 +13,7 @@ import PublicIcon from "@mui/icons-material/Public";
 
 
 const HelpGuide = () => {
-  return ({
-  })
+  return (<h1>Help Guide Here</h1>)
 };
 
 export default HelpGuide;

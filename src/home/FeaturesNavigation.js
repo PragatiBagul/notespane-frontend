@@ -134,7 +134,7 @@ const openedMixin = (theme) => ({
   };
 
 
-const FeaturesNavigation = () => {
+const FeaturesNavigation = ({setCurrentNavigation}) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("Feed");
   const handleDrawerOpen = () => {
@@ -170,7 +170,7 @@ const FeaturesNavigation = () => {
             "Help Guide",
             "Trash",
           ].map((text, index) => (
-            <ListItemButton key={text} onClick={() => setSelected(text)}>
+            <ListItemButton key={text} onClick={() => { setSelected(text); setCurrentNavigation(text); }}>
               <ListItemIcon>{renderSwitch(text)}</ListItemIcon>
               <ListItemText primary={text} />
               {text == "Music" && (

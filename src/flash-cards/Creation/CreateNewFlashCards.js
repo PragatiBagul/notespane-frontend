@@ -1,4 +1,4 @@
-import { Card, CardContent, CardActions, TextField, Button, Stack, Switch,FormControl,RadioGroup,FormControlLabel,Radio, Typography } from "@mui/material";
+import { Card, CardContent, CardActions,CardHeader, TextField, Button, Stack, Switch,FormControl,RadioGroup,FormControlLabel,Radio, Typography } from "@mui/material";
 import { useState } from "react";
 
 const CreateNewFlashCards = ({ title, setTitle, description, setDescription, saveFlashCards, mode, setMode }) => {
@@ -20,7 +20,7 @@ const CreateNewFlashCards = ({ title, setTitle, description, setDescription, sav
         }
     return (
             <Card>
-                <CardContent>
+                    <CardContent>
                         <TextField id="title" label="Title" variant="standard" value={title} onChange={e => setTitle(e.target.value)} fullWidth required />
                         <TextField
           id="standard-multiline-flexible"

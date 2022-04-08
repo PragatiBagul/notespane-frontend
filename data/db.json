@@ -1,10 +1,118 @@
 {
   "flashCards": [
     {
-      "title": "Java Test ",
-      "description": "Java MCQ Online Test | Java Objective Questions | Sanfoundry Java MCQ",
-      "flashCards": [],
+      "title": "Stack Operations",
+      "description": "Data Structure Questions and Answers – Stack Operations – 1",
+      "flashCards": [
+        {
+          "questionType": "scq",
+          "question": "Process of inserting an element in stack is called ____________",
+          "options": [
+            "Create",
+            "Push",
+            "Evaluation",
+            "Pop"
+          ],
+          "answer": "Push"
+        },
+        {
+          "questionType": "mcq",
+          "question": "Which of the following is not the application of stack?",
+          "options": [
+            "A parentheses balancing program",
+            "Tracking of local variables at run time",
+            "Compiler Syntax Analyzer",
+            "Data Transfer between two asynchronous process"
+          ],
+          "answers": [
+            "A parentheses balancing program",
+            "Tracking of local variables at run time",
+            "Compiler Syntax Analyzer"
+          ]
+        },
+        {
+          "questionType": "mwq",
+          "question": "Stack follows which principle?",
+          "options": [],
+          "answer": "Last In First Out"
+        },
+        {
+          "questionType": "swq",
+          "question": "Removing element from stack is called:",
+          "answer": "pop"
+        }
+      ],
+      "mode": "public",
       "id": 1
+    },
+    {
+      "title": "Stack Operations",
+      "description": "Data Structure Questions and Answers – Stack Operations – 1",
+      "flashCards": [
+        {
+          "questionType": "scq",
+          "question": "Process of inserting an element in stack is called ____________",
+          "options": [
+            "Create",
+            "Push",
+            "Evaluation",
+            "Pop"
+          ],
+          "answer": "Push"
+        },
+        {
+          "questionType": "mcq",
+          "question": "Which of the following is not the application of stack?",
+          "options": [
+            "A parentheses balancing program",
+            "Tracking of local variables at run time",
+            "Compiler Syntax Analyzer",
+            "Data Transfer between two asynchronous process"
+          ],
+          "answers": [
+            "A parentheses balancing program",
+            "Tracking of local variables at run time",
+            "Compiler Syntax Analyzer"
+          ]
+        },
+        {
+          "questionType": "mwq",
+          "question": "Stack follows which principle?",
+          "options": [],
+          "answer": "Last In First Out"
+        },
+        {
+          "questionType": "swq",
+          "question": "Removing element from stack is called:",
+          "answer": "pop"
+        }
+      ],
+      "mode": "private",
+      "id": 2
+    },
+    {
+      "title": "Queue in Java",
+      "description": "Java Questions & Answers – Data Structures-Queue",
+      "flashCards": [
+        {
+          "questionType": "scq",
+          "question": "What is the correct method used to insert and delete items from the queue?",
+          "options": [
+            " push and pop",
+            "enqueue and dequeue",
+            "enqueue and peek",
+            "add and remove"
+          ],
+          "answer": "enqueue and dequeue"
+        },
+        {
+          "questionType": "swq",
+          "question": "Which data structure is used in Breadth First Traversal of a graph?",
+          "answer": "Queue"
+        }
+      ],
+      "mode": "public",
+      "id": 3
     }
   ]
 }

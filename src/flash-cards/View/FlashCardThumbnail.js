@@ -1,9 +1,9 @@
 import { Grid, Card, CardContent, Typography, CardMedia, CardActionArea, CardActions, Button } from "@mui/material";
 import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
-const FlashCardThumbnail = ({flashCard}) => {
+const FlashCardThumbnail = ({flashCard,setView,setId}) => {
     return (
         <Grid item xs={12} sm={12} md={6} lg={3} xl={3} style={{padding:'1.5%'}}>
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345 }} onClick={() => { setView("play"); setId(flashCard.id); }}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -23,7 +23,7 @@ const FlashCardThumbnail = ({flashCard}) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary">
+            <Button size="small" color="primary" onClick={(e) => { setView("play"); setId(flashCard.id); }}>
             <ViewCarouselIcon/> &nbsp;Play 
           </Button>
         </CardActions>
