@@ -30,7 +30,8 @@ const NewFlashCards = () => {
             {flashCards.map((flashCard,index) => (
               <QuestionType id={ index} key={index} flashCards={flashCards} setFlashCards={ setFlashCards}/>
             ))}
-        <NewFlashCardThumbnail  flashCards={flashCards} setFlashCards={ setFlashCards} />
+        <NewFlashCardThumbnail flashCards={flashCards} setFlashCards={setFlashCards} />
+        <Button onClick={click}>Click Me</Button>
       </Stack>
     </Container>);
 }

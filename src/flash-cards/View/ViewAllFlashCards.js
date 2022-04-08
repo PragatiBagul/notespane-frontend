@@ -2,7 +2,7 @@ import { useState } from "react";
 import FlashCardThumbnail from "./FlashCardThumbnail";
 import { Container, Grid, Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-const ViewAllFlashCards = () => {
+const ViewAllFlashCards = ({setView }) => {
     const [flashCards, setFlashCards] = useState([
         {"id":1,"title":"Title 1","description":"Description 1"},
         { "id": 2, "title":"Title 2", "description":"Description 2"},
@@ -14,9 +14,9 @@ const ViewAllFlashCards = () => {
     return (
         <Container>
         <Grid container spacing={2}>{flashCards.map((flashCard, index) => (
-        <FlashCardThumbnail flashCard={flashCard} />
+        <FlashCardThumbnail key={index} flashCard={flashCard} />
         ))}</Grid>
-            <Fab color="primary" aria-label="add" style={{ position: "absolute",right: "0",bottom: "0",margin:"2.5%" }}>
+            <Fab color="primary" aria-label="add" style={{ position: "absolute",right: "0",bottom: "0",margin:"2.5%" }} onClick={() => setView("create")}>
   <AddIcon />
 </Fab>
             </Container>);

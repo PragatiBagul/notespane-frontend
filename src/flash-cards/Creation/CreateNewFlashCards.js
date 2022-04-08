@@ -1,7 +1,23 @@
-import { Card, CardContent, CardActions, TextField, Button, Stack, InputLabel,FormControl,Select,MenuItem } from "@mui/material";
+import { Card, CardContent, CardActions, TextField, Button, Stack, Switch,FormControl,RadioGroup,FormControlLabel,Radio, Typography } from "@mui/material";
 import { useState } from "react";
 
-const CreateNewFlashCards = ({title,setTitle,description,setDescription,saveFlashCards,mode,setMode}) => {
+const CreateNewFlashCards = ({ title, setTitle, description, setDescription, saveFlashCards, mode, setMode }) => {
+        const [isPublic, setIsPublic] = useState(true);
+        const [label, setLabel] = useState("Publish to all");
+        const changeMode = (e) => {
+                if (e.target.checked)
+                {
+                        setIsPublic(true);        
+                        setMode("public");
+                        setLabel("Publish to all");
+                }
+                else
+                {
+                        setIsPublic(false);        
+                        setMode("private");
+                        setLabel("Keep private");
+                }
+        }
     return (
             <Card>
                 <CardContent>
@@ -19,20 +35,12 @@ const CreateNewFlashCards = ({title,setTitle,description,setDescription,saveFlas
                 </CardContent>
                     <CardActions>
                             <Stack direction="row" spacing={2}>
-                            <FormControl fullWidth>
-  <InputLabel id="demo-simple-select-label">Mode</InputLabel>
-  <Select
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
-                                                    value={mode}
-    label="Mode"
-    onChange={(e) => setMode(e.target.value)}
-  >
-    <MenuItem value={"public"}>Public</MenuItem>
-    <MenuItem value={"private"}>Private</MenuItem>
-  </Select>
-</FormControl>
-                                    <Button variant="contained" onClick={saveFlashCards}>Save</Button>
+                            <Button variant="contained" onClick={saveFlashCards}>Save</Button>
+                                    
+                                    <FormControl>
+                                    <FormControlLabel control={<Switch checked={isPublic} />} onChange={(e) => changeMode(e)} label={"Publish to all" } />
+    </FormControl>
+                                    
                                     </Stack>
                 </CardActions>
         </Card>);

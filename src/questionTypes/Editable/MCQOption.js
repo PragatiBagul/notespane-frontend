@@ -9,7 +9,12 @@ const MCQOption = ({optionList,setOptionList,data, index,answers,setAnswers}) =>
     const handleDelete = (id) => {
         setOptionList(optionList.filter((option,index) => index != id));
     }
-
+    const handleChange = () => {
+        let newArr = [...optionList]; // copying the old datas array
+        newArr[index] = option;
+        setAnswers([]);
+        setOptionList(newArr);
+    }
     const selectOption = (e) => {
         if (e.target.checked)
         {
@@ -23,7 +28,7 @@ const MCQOption = ({optionList,setOptionList,data, index,answers,setAnswers}) =>
     return (
     <ListItem disablePadding key={index}>        
             <ListItemButton>
-            <Checkbox edge="start" id={`checkbox-${index}`} disabled={isEditable} onChange={(e) => selectOption(e)} />
+                <Checkbox edge="start" id={`checkbox-${index}`} disabled={isEditable} checked={ answers.includes(option) } onChange={(e) => selectOption(e)} />
             {
                 isEditable ?
                     <>
@@ -32,10 +37,10 @@ const MCQOption = ({optionList,setOptionList,data, index,answers,setAnswers}) =>
                                 type="text"
                                 size="small"
                                 defaultValue={option}
-                                onChange={(e) => setOption(e.target.value)}
+                                onChange={(e) => { setOption(e.target.value); }}
                         />
                         <IconButton edge="end"
-                            onClick={() => setIsEditable(false)}
+                                onClick={() => { setIsEditable(false); handleChange(); }}
                             color="primary">
                             <DoneOutlinedIcon />
                         </IconButton>
@@ -51,8 +56,8 @@ const MCQOption = ({optionList,setOptionList,data, index,answers,setAnswers}) =>
                             <IconButton edge="end" onClick={() => setIsEditable(true)} color="primary">
                     <EditOutlinedIcon/>
                 </IconButton></>
-            }
-        </ListItemButton>
+                }
+            </ListItemButton>
     </ListItem>);
 }
  

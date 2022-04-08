@@ -10,6 +10,11 @@ const SCQOption = ({optionList,setOptionList,data, index,answer,setAnswer}) => {
         setOptionList(optionList.filter((option,index) => index != id));
     }
 
+    const handleChange = () => {
+        let newArr = [...optionList]; // copying the old datas array
+        newArr[index] = option; // replace e.target.value with whatever you want to change it to
+        setOptionList(newArr);
+    }
     const selectOption = (e) => {
         if (e.target.checked)
         {
@@ -35,7 +40,7 @@ const SCQOption = ({optionList,setOptionList,data, index,answer,setAnswer}) => {
                                 onChange={(e) => setOption(e.target.value)}
                         />
                         <IconButton edge="end"
-                            onClick={() => setIsEditable(false)}
+                                onClick={() => { setIsEditable(false); handleChange() }}
                             color="primary">
                             <DoneOutlinedIcon />
                         </IconButton>

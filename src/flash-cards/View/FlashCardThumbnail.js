@@ -2,7 +2,7 @@ import { Grid, Card, CardContent, Typography, CardMedia, CardActionArea, CardAct
 import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
 const FlashCardThumbnail = ({flashCard}) => {
     return (
-        <Grid xs={12} sm={12} md={6} lg={3} xl={3} style={{padding:'1.5%'}}>
+        <Grid item xs={12} sm={12} md={6} lg={3} xl={3} style={{padding:'1.5%'}}>
         <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
           <CardMedia

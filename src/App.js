@@ -15,7 +15,7 @@ function App() {
         <Route
           path="/"
               element={
-          <NewFlashCards/>
+          <Home/>
           }
         />
         <Route path="/login" element={<Login />} />
