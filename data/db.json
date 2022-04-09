@@ -40,6 +40,80 @@
           "questionType": "swq",
           "question": "Removing element from stack is called:",
           "answer": "pop"
+        },
+        {
+          "questionType": "scq",
+          "question": "Process of inserting an element in stack is called ____________",
+          "options": [
+            "Create",
+            "Push",
+            "Evaluation",
+            "Pop"
+          ],
+          "answer": "Push"
+        },
+        {
+          "questionType": "mcq",
+          "question": "Which of the following is not the application of stack?",
+          "options": [
+            "A parentheses balancing program",
+            "Tracking of local variables at run time",
+            "Compiler Syntax Analyzer",
+            "Data Transfer between two asynchronous process"
+          ],
+          "answers": [
+            "A parentheses balancing program",
+            "Tracking of local variables at run time",
+            "Compiler Syntax Analyzer"
+          ]
+        },
+        {
+          "questionType": "mwq",
+          "question": "Stack follows which principle?",
+          "options": [],
+          "answer": "Last In First Out"
+        },
+        {
+          "questionType": "swq",
+          "question": "Removing element from stack is called:",
+          "answer": "pop"
+        },
+        {
+          "questionType": "scq",
+          "question": "Process of inserting an element in stack is called ____________",
+          "options": [
+            "Create",
+            "Push",
+            "Evaluation",
+            "Pop"
+          ],
+          "answer": "Push"
+        },
+        {
+          "questionType": "mcq",
+          "question": "Which of the following is not the application of stack?",
+          "options": [
+            "A parentheses balancing program",
+            "Tracking of local variables at run time",
+            "Compiler Syntax Analyzer",
+            "Data Transfer between two asynchronous process"
+          ],
+          "answers": [
+            "A parentheses balancing program",
+            "Tracking of local variables at run time",
+            "Compiler Syntax Analyzer"
+          ]
+        },
+        {
+          "questionType": "mwq",
+          "question": "Stack follows which principle?",
+          "options": [],
+          "answer": "Last In First Out"
+        },
+        {
+          "questionType": "swq",
+          "question": "Removing element from stack is called:",
+          "answer": "pop"
         }
       ],
       "mode": "public",
@@ -50,7 +124,7 @@
       "description": "Data Structure Questions and Answers – Stack Operations – 1",
       "flashCards": [
         {
-          "questionType": "scq",
+          "questionType": "mcq",
           "question": "Process of inserting an element in stack is called ____________",
           "options": [
             "Create",

@@ -1,12 +1,12 @@
 import { Card,Alert,AlertTitle,FormControl, Radio,RadioGroup,FormControlLabel, CardContent, Typography, CardActions, Button } from "@mui/material";
 
 import { useState } from "react";
-const SingleChoiceQuestion = () => {
+const SingleChoiceQuestion = ({question,options,answer}) => {
     
     //Get from props
-    const [question, setQuestion] = useState("What is 2 + 2 ? ");
-    const [answer, setAnswer] = useState(4);
-    const [options, setOptions] = useState([1,2,3,4]);
+    //const [question, setQuestion] = useState("What is 2 + 2 ? ");
+    //const [answer, setAnswer] = useState(4);
+    //const [options, setOptions] = useState([1,2,3,4]);
     
     //Declare here
     const [disableAll, setDisableAll] = useState(false);
@@ -38,13 +38,13 @@ const SingleChoiceQuestion = () => {
         variant="standard"
         >
             <CardContent>
-            <Typography variant="h5">{question}</Typography>
+                <Typography variant="h5">{question}</Typography>
+                
             <RadioGroup
     aria-labelledby="demo-radio-buttons-group-label"
-    defaultValue="female"
     name="radio-buttons-group"
             >
-                {
+                {options!=null &&
                     options.map((option,index) => (
                         <FormControlLabel key={index} value="end" control={<Radio value={option} onChange={(e) => handleChange(e.target.value)} disabled={ disableAll}/>} label={option} />
                     ))

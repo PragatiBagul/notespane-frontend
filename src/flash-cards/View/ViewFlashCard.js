@@ -1,5 +1,7 @@
-import { Stack,Card,CardContent, Typography,Grid,Container } from "@mui/material";
-import { useEffect,useState } from "react";
+import { Box, Stack, Card, CardContent, Typography, Grid, Container } from "@mui/material";
+
+import { useEffect, useState } from "react";
+
 import FlashCard from "./FlashCard";
 import FlashCardSide from "./FlashCardSide";
 const ViewFlashCard = ({ setView, id }) => {
@@ -23,14 +25,11 @@ const ViewFlashCard = ({ setView, id }) => {
         }, 1000);
     },[]);
     return (
+        <Box>
         <Grid container spacing={2}>
-            <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
-                <FlashCardSide cards={cards} setSelected={ setSelected}/>
-            </Grid>
-            <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
-                <FlashCard card={ cards[selected]}/>
-            </Grid>
-      </Grid> );
+        
+        </Grid>
+    </Box>      );
 }
  
 export default ViewFlashCard;

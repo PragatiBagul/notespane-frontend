@@ -1,12 +1,12 @@
 import { Alert,AlertTitle,Card,FormControl,FormControlLabel,FormLabel,Checkbox,FormGroup,FormHelperText,Typography,Button, CardContent, CardActions } from "@mui/material";
 import { useState } from "react";
 import _ from "lodash";
-const MultipleChoiceQuestion = () => {
+const MultipleChoiceQuestion = ({question,options,answer}) => {
 
     //Get from props
-    const [question, setQuestion] = useState("What is 2 + 2 ? ");
-    const [answer, setAnswer] = useState(["1","3"]);
-    const [options, setOptions] = useState(["1","2","3","4"]);
+    //const [question, setQuestion] = useState("What is 2 + 2 ? ");
+    //const [answer, setAnswer] = useState(["1","3"]);
+    //const [options, setOptions] = useState(["1","2","3","4"]);
     
     //Declare here
     const [disableAll, setDisableAll] = useState(false);
@@ -42,14 +42,15 @@ const MultipleChoiceQuestion = () => {
 
     return (
         <Card>
-        <CardContent>
-            <Typography variant="h5">{question}</Typography>
-            <FormControl
+                 <FormControl
         required
         component="fieldset"
         sx={{ m: 3 }}
         variant="standard"
       >
+        <CardContent>
+            <Typography variant="h5">{question}</Typography>
+       
                 <FormGroup>
                     {options.map((option, index) => (
                         <FormControlLabel
@@ -68,11 +69,12 @@ const MultipleChoiceQuestion = () => {
                 {severity == "error" && <><AlertTitle>Wrong Answer</AlertTitle>
                 Your answer is wrong <strong>Better luck next time!</strong></>}
             </Alert>}
-      </FormControl>
+      
         </CardContent>
         <CardActions>
 <Button variant="contained" onClick={submit}> OK </Button>
-        </CardActions>
+                </CardActions>
+                </FormControl>
     </Card> );
 }
  

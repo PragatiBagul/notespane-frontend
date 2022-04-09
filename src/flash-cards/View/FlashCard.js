@@ -1,16 +1,10 @@
-import { Container, Card, CardContent, Typography, Button } from "@mui/material";
+import { Box } from "@mui/material";
+import QuestionType from "../../questionTypes/QuestionType";
 const FlashCard = ({ card }) => {
-    const click = () => {
-        console.log(card.question);
-    }
     return (
-        <Container>
-            <Card>
-                <CardContent>
-                    <Typography variant="h6">{card.question }</Typography>
-                </CardContent>
-            </Card>
-        </Container>);
+        <Box>
+            <QuestionType card={card}/>
+            </Box>);
 }
  
 export default FlashCard;

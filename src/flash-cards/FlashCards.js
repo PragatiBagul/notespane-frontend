@@ -11,7 +11,7 @@ const FlashCards = () => {
       {view == "default" ? <ViewAllFlashCards setView={setView} setId={setId}/> : <></>}
       {view == "create" ? <NewFlashCards setView={setView} /> : <></>}
       {view == "play" ? <ViewFlashCard setView={setView} id={id} /> : <></>}
-      </>
+  </>
   );
 };
 

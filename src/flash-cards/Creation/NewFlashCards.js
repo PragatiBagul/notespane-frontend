@@ -1,5 +1,5 @@
 import { Container, Stack,Divider,Fab,Typography } from "@mui/material";
-import QuestionType from "../../questionTypes/QuestionType";
+import QuestionTypeEditable from "../../questionTypes/QuestionTypeEditable";
 import NewFlashCardThumbnail from "./NewFlashCardThumbnail";
 import { useState } from "react";
 import CreateNewFlashCards from "./CreateNewFlashCards";
@@ -31,7 +31,7 @@ const NewFlashCards = ({setView}) => {
         <CreateNewFlashCards mode={mode} setMode={ setMode} title={title} setTitle={setTitle} description={description} setDescription={ setDescription} saveFlashCards={ saveFlashCards}/>
             <Divider />
             {flashCards.map((flashCard,index) => (
-              <QuestionType id={ index} key={index} flashCards={flashCards} setFlashCards={ setFlashCards}/>
+              <QuestionTypeEditable id={ index} key={index} flashCards={flashCards} setFlashCards={ setFlashCards}/>
             ))}
         <NewFlashCardThumbnail flashCards={flashCards} setFlashCards={setFlashCards} />
       </Stack>

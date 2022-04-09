@@ -1,9 +1,9 @@
 import { Card,FormControl,Typography,Alert,AlertTitle,TextField,Button, CardContent, CardActions } from "@mui/material";
 import { useState } from "react";
-const MultipleWordQuestion = () => {
+const MultipleWordQuestion = ({question,answer}) => {
     //Get from props
-    const [question, setQuestion] = useState("What is 2 + 2 ? ");
-    const [answer, setAnswer] = useState("Four");
+    //const [question, setQuestion] = useState("What is 2 + 2 ? ");
+    //const [answer, setAnswer] = useState("Four");
 
     const [userAnswer, setUserAnswer] = useState("");
     const [severity, setSeverity] = useState(null);
@@ -27,7 +27,7 @@ const MultipleWordQuestion = () => {
         >
         <CardContent>
             <Typography variant="h5">{question}</Typography>
-            <TextField id="standard-basic" label="Answer" variant="standard" value={userAnswer} onChange={(e) => setUserAnswer(e.target.value)}  />
+            <TextField id="standard-basic" label="Answer" variant="standard" value={userAnswer} onChange={(e) => setUserAnswer(e.target.value)}  fullWidth/>
             {severity != null && <Alert severity={severity}>
                 {severity == "success" && <><AlertTitle>Correct Answer</AlertTitle>
                     Your answer is right <strong>You scored a point!</strong></>}
