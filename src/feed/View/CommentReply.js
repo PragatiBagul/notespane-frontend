@@ -4,7 +4,7 @@ import { useState } from "react";
 import React from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-const CommentReply = () => {
+const CommentReply = ({reply}) => {
   const [like, setLike] = useState(false);
   return (<ListItem alignItems="flex-start" fullWidth sx={{ pl: 6 }}
   secondaryAction={<>
@@ -17,17 +17,19 @@ const CommentReply = () => {
       <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
     </ListItemAvatar>
     <ListItemText
+      primary={<React.Fragment>
+        <Typography
+          sx={{ display: 'inline' }}
+          component="span"
+          variant="body2"
+          color="text.primary"
+        >
+          Pragati Bagul
+        </Typography>
+        </React.Fragment>}
       secondary={
         <React.Fragment>
-          <Typography
-            sx={{ display: 'inline' }}
-            component="span"
-            variant="body2"
-            color="text.primary"
-          >
-            Pragati Bagul
-          </Typography>
-          {" — Go run the errands…"}
+          {reply}
         </React.Fragment>
       }
     />

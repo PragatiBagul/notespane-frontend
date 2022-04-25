@@ -1,4 +1,5 @@
 /*Importing Indigenous Components */
+import UserHome from "../user/UserHome";
 import Feed from "../feed/Feed";
 import Calculator from "../calculator/Calculator";
 import FlashCards from "../flash-cards/FlashCards";
@@ -10,10 +11,11 @@ import Saved from "../saved/Saved";
 import Notebook from "../notebook/Notebook";
 import HelpGuide from "../help-guide/HelpGuide";
 import Courses from "../courses/Courses";
-
+import { useAuth } from "../hooks/useAuth";
 import { styled } from "@mui/material/styles";
 
 /*Importing icons from material icons */
+import HomeIcon from "@mui/icons-material/HomeIcon";
 import DynamicFeedOutlinedIcon from "@mui/icons-material/DynamicFeedOutlined";
 import RuleOutlinedIcon from "@mui/icons-material/RuleOutlined";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
@@ -104,6 +106,8 @@ const openedMixin = (theme) => ({
   
   const renderSwitch = (param) => {
     switch (param) {
+      case "Home":
+        return <HomeIcon/>
       case "Feed":
         return <DynamicFeedOutlinedIcon />;
       case "Mock Tests":
@@ -134,7 +138,8 @@ const openedMixin = (theme) => ({
   };
 
 
-const FeaturesNavigation = ({setCurrentNavigation}) => {
+const FeaturesNavigation = ({ setCurrentNavigation }) => {
+  const { Logout, user, isAuthenticating } = useAuth();
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("Feed");
   const handleDrawerOpen = () => {
@@ -156,7 +161,8 @@ const FeaturesNavigation = ({setCurrentNavigation}) => {
         <DrawerHeader />
         <Divider />
         <List>
-          {[
+        {[
+            "Home",
             "Feed",
             "Mock Tests",
             "Notebook",
@@ -189,6 +195,7 @@ const FeaturesNavigation = ({setCurrentNavigation}) => {
       </Drawer>
       <Box component="main" sx={{ p: 2 }}>
         <DrawerHeader />
+        {selected == "Home" && <UserHome uid={ user.uid}/>}
         {selected == "Feed" && <Feed />}
         {selected == "Mock Tests" && <MockTests />}
         {selected == "Notebook" && <Notebook />}
