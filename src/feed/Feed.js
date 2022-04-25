@@ -1,4 +1,4 @@
-import { Stack, Grid, Fab, Backdrop, Box } from "@mui/material";
+import { Card,CardContent,Stack, Grid, Fab, Backdrop, Box } from "@mui/material";
 import Post from "./View/Post";
 import AddIcon from '@mui/icons-material/Add';
 import "../css/general.css";
@@ -20,7 +20,11 @@ const Feed = () => {
         <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
           <Stack style={{ alignSelf: "center" }} spacing={2}>
             {[...Array(20)].map((e, i) => (
-              <Post key={i} />
+              <Card key={i  }>
+                <CardContent>
+                  <h1>Hello This is the post</h1>
+                </CardContent>
+              </Card>
             ))}
           </Stack>
         </Grid>

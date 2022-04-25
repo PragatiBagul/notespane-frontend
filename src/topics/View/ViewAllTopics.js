@@ -118,7 +118,7 @@ const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
       {isSelf && <Fab color="primary"
         aria-label="add"
         style={{ position: "absolute", right: "0", bottom: "0", margin: "2.5%" }}
-        onClick={() => setView("newPost")}>
+        onClick={() => setView("create")}>
         <AddIcon />
       </Fab>}
     </ThemeProvider>);

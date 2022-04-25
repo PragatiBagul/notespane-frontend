@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { fetchUserProfile } from "./utils/RequestEndPoints";
-import Topics from "./topics/Topics";
+import { fetchUserProfile } from "../utils/RequestEndPoints";
+import Topics from "../topics/Topics";
 import { useState } from "react";
-import { useAuth } from "./hooks/useAuth";
+import { useAuth } from "../hooks/useAuth";
 const UserHome = ({ uid }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [isPending, setIsPending] = useState(true);

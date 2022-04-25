@@ -15,7 +15,7 @@ import { useAuth } from "../hooks/useAuth";
 import { styled } from "@mui/material/styles";
 
 /*Importing icons from material icons */
-import HomeIcon from "@mui/icons-material/HomeIcon";
+import HomeIcon from '@mui/icons-material/Home';
 import DynamicFeedOutlinedIcon from "@mui/icons-material/DynamicFeedOutlined";
 import RuleOutlinedIcon from "@mui/icons-material/RuleOutlined";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";

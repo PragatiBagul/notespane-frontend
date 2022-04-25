@@ -9,6 +9,9 @@ const Topics = ({ currentUser,isSelf }) => {
     const { user } = useAuth();
     const [view, setView] = useState("view");
     const [selected, setSelected] = useState(null);
+    useEffect(() => {
+        console.log(view);
+    },[view]);
     return (
         <>
             {view == "view" && <ViewAllTopics setView={setView} currentUser={currentUser} setSelected={setSelected} isSelf={ user.uid === currentUser.uid}/>}

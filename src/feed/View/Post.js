@@ -77,23 +77,23 @@ const Post = ({post}) => {
               (theme) => ({
                 [theme.breakpoints.up('xs')]: {
                   height: "200px",
-                  width: "200px"
+                  width: "100%"
                 },
                 [theme.breakpoints.up('sm')]: {
                   height: "200px",
-                  width: "200px"
+                  width: "100%"
                 },
                 [theme.breakpoints.up('md')]: {
                   height: "200px",
-                  width: "200"
+                  width:"100%"
                 },
                 [theme.breakpoints.up('lg')]: {
                   height: "300px",
-                  width: "300px"
+                  width: "100%"
                 },
                 [theme.breakpoints.up('xl')]: {
                   height: "300px",
-                  width: "300px"
+                  width: "100%"
                 }
               })} component="img" image={`data:image/jpeg;base64,${imageData}`} alt={post.postTitle} />
             }

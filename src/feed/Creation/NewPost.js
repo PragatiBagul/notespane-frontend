@@ -20,23 +20,23 @@ const CardMediaComponent = styled("div")(({ theme }) => ({
     padding:"2%",
     [theme.breakpoints.up('xs')]: {
         height: "100px",
-        width:"100px"
+        width:"100%",
       },
       [theme.breakpoints.up('sm')]: {
         height: "200px",
-        width:"200px"
+        width:"100%",
       },
       [theme.breakpoints.up('md')]: {
         height: "300px",
-        width:"300px"
+        width:"100%",
       },
     [theme.breakpoints.up('lg')]: {
         height: "400px",
-        width:"400px"
+        width:"100%",
       },
       [theme.breakpoints.up('xl')]: {
         height: "500px",
-        width:"500px"
+        width:"100%",
       }
   }));
   
@@ -106,23 +106,23 @@ const NewPost = ({ setView, topic }) => {
                             (theme) => ({
                                 [theme.breakpoints.up('xs')]: {
                                     height: "100%",
-                                width: "100%"
+                                width:"100%",
                                   },
                                   [theme.breakpoints.up('sm')]: {
                                     height: "100%",
-                                    width:"100%"
+                                    width:"100%",
                                   },
                                   [theme.breakpoints.up('md')]: {
                                     height: "400px",
-                                    width:"400px"
+                                    width:"100%",
                                   },
                                 [theme.breakpoints.up('lg')]: {
                                     height: "500px",
-                                    width:"500px"
+                                    width:"100%",
                                   },
                                   [theme.breakpoints.up('xl')]: {
                                     height: "500px",
-                                    width:"500px"
+                                    width:"100%",
                                   }
       })} component="img" image={URL.createObjectURL(attachment)} alt={title} />
                         {/*</CardMediaComponent>*/}
