@@ -15,7 +15,7 @@ import { useAuth } from "../hooks/useAuth";
 import { styled } from "@mui/material/styles";
 
 /*Importing icons from material icons */
-import HomeIcon from '@mui/icons-material/Home';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import DynamicFeedOutlinedIcon from "@mui/icons-material/DynamicFeedOutlined";
 import RuleOutlinedIcon from "@mui/icons-material/RuleOutlined";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
@@ -107,7 +107,7 @@ const openedMixin = (theme) => ({
   const renderSwitch = (param) => {
     switch (param) {
       case "Home":
-        return <HomeIcon/>
+        return <HomeOutlinedIcon/>
       case "Feed":
         return <DynamicFeedOutlinedIcon />;
       case "Mock Tests":
@@ -193,7 +193,7 @@ const FeaturesNavigation = ({ setCurrentNavigation }) => {
           )}
         </List>
       </Drawer>
-      <Box component="main" sx={{ p: 2 }}>
+      <Box component="main" sx={{ p: 1 }}>
         <DrawerHeader />
         {selected == "Home" && <UserHome uid={ user.uid}/>}
         {selected == "Feed" && <Feed />}

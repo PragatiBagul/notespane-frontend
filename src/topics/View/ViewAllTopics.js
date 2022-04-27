@@ -42,7 +42,7 @@ const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
           backgroundColor: "#a4508b",
           backgroundImage: "linear-gradient(326deg, #a4508b 0%, #5f0a87 74%)",
           borderRadius: '25px',
-          m: 2,
+          m: 0,
           pt: 2,
           pb: 2,
         }}

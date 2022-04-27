@@ -9,7 +9,7 @@ import { deepPurple } from "@mui/material/colors";
 const Feed = () => {
   const { height, width } = useWindowDimensions();
   return (
-    <Box className="infinitescroll" style={{ height: height, padding: "2%",backgroundColor: deepPurple[50]}}>
+    <Box className="infinitescroll" style={{ height: height,backgroundColor: deepPurple[50]}}>
       <Grid
         container
         spacing={0}
