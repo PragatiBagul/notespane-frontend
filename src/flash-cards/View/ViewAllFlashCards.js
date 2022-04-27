@@ -2,19 +2,21 @@ import { useState,useEffect } from "react";
 import FlashCardThumbnail from "./FlashCardThumbnail";
 import { Container, Grid, Fab,Divider } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { fetchFlashCards, fetchPublicFlashCards } from "../../utils/RequestEndPoints";
+import { fetchAllFlashCards } from "../../utils/RequestEndPoints";
 const ViewAllFlashCards = ({setView,setId }) => {
     const [flashCards, setFlashCards] = useState([]);
     const [isPending, setIsPending] = useState(true);
     const [publicFlashCards,setPublicFlashCards] = useState([]);
     useEffect(() => {
-        setTimeout(() => {
-            const response = fetchFlashCards();
+        const fetch = async () => {
+            var response = await fetchAllFlashCards();
+            return response;
+          };
+          setTimeout(async () => {
+            const response = await fetch();
             setFlashCards(response);
-            const publicResponse = fetchPublicFlashCards();
-            setPublicFlashCards(publicResponse);
-        setIsPending(false);
-        }, 1000);
+            setIsPending(false);
+          }, 1000);
     }, []);
     
     return (
@@ -26,10 +28,7 @@ const ViewAllFlashCards = ({setView,setId }) => {
             <Grid container spacing={2}>{!isPending && publicFlashCards.map((flashCard, index) => (
             <FlashCardThumbnail key={index} flashCard={flashCard} setView={setView} setId={setId}/>
         ))}</Grid>
-            <Fab color="primary" aria-label="add" style={{ position: "absolute",right: "0",bottom: "0",margin:"2.5%" }} onClick={() => setView("create")}>
-  <AddIcon />
-</Fab>
-            </Container>);
+    </Container>);
 }
  
 export default ViewAllFlashCards;

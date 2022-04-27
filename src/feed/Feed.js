@@ -1,15 +1,27 @@
-import { Card,CardContent,Stack, Grid, Fab, Backdrop, Box } from "@mui/material";
+import { Stack, Grid, Box } from "@mui/material";
 import Post from "./View/Post";
-import AddIcon from '@mui/icons-material/Add';
 import "../css/general.css";
-import NewPost from "./Creation/NewPost";
 import useWindowDimensions from "../utils/useWindowDimensions";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { deepPurple } from "@mui/material/colors";
+import { fetchPosts } from "../utils/RequestEndPoints";
 const Feed = () => {
   const { height, width } = useWindowDimensions();
+  const [posts, setPosts] = useState([]);
+  const [isPending, setIsPending] = useState(true);
+  useEffect(() => {
+    const fetch = async () => {
+      var response = await fetchPosts();
+      return response;
+    };
+    setTimeout(async () => {
+      const response = await fetch();
+      setPosts(response);
+      setIsPending(false);
+    }, 1000);
+  }, []);
   return (
-    <Box className="infinitescroll" style={{ height: height,backgroundColor: deepPurple[50]}}>
+    <Box className="infinitescroll" style={{ width: "100%", height: height }}>
       <Grid
         container
         spacing={0}
@@ -17,14 +29,10 @@ const Feed = () => {
         alignItems="center"
         justifyContent="center"
       >
-        <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+        <Grid item xs={5} sm={5} md={5} lg={5} xl={5}>
           <Stack style={{ alignSelf: "center" }} spacing={2}>
-            {[...Array(20)].map((e, i) => (
-              <Card key={i  }>
-                <CardContent>
-                  <h1>Hello This is the post</h1>
-                </CardContent>
-              </Card>
+            {posts.map((post, i) => (
+              <Post key={i} post={post} />
             ))}
           </Stack>
         </Grid>

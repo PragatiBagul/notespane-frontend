@@ -12,6 +12,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useState,useEffect } from 'react';
 import { getDateFromTimestamp } from "../../utils/GetDate";
 import { useAuth } from '../../hooks/useAuth';
+import { saveLike, deleteLike } from '../../utils/RequestEndPoints';
 import { fetchPostImage } from "../../utils/RequestEndPoints";
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -38,14 +39,34 @@ const Post = ({post}) => {
     setExpanded(!expanded);
   };
 
-  const saveLike = () => {
+  const addLike = async () => {
+    const response = await saveLike(post.id);
+    console.log("Added like to post");
+    console.log(response);
+  }
+
+  const removeLike = async () => {
+    const response = await deleteLike(post.id);
+    console.log("Added like to post");
+    console.log(response);
+  }
+
+  const addToSaved = async () => {
 
   }
 
-  const deleteLike = () => {
+  const removeFromSaved = async () => {
 
   }
 
+  const figureOutLike = () => {
+    if (like) {
+      addLike();
+    }
+    else {
+      removeLike();
+    }
+  }
   useEffect(() => {
     getImage();
   },[]);
@@ -60,7 +81,7 @@ const Post = ({post}) => {
             <MoreVertIcon />
           </IconButton>
         }
-        title={post.postTitle}
+        title={<Typography variant="h5">{post.postTitle}</Typography>}
         subheader={getDateFromTimestamp(post.timestampOfCreation)}
       /> 
                       {post.contentType == "IMAGE" && (
@@ -109,7 +130,10 @@ const Post = ({post}) => {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-      <IconButton onClick={() => setLike(!like)}>
+        <IconButton onClick={() => {
+          setLike(!like);
+          figureOutLike();
+        }}>
             {!like && <FavoriteBorderIcon />}
             {like && <FavoriteIcon color="error" />}
         </IconButton>

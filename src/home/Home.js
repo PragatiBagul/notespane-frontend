@@ -107,7 +107,7 @@ export default function Home() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed">
+      <AppBar position="fixed" color="secondary">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography

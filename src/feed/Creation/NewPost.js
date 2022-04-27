@@ -14,32 +14,7 @@ import { useEffect } from "react";
 import { createPost, addPostContent } from "../../utils/RequestEndPoints";
 import Dropzone from "./Dropzone";
 import "./NewPost";
-import { styled, createTheme, ThemeProvider } from '@mui/system';
 
-const CardMediaComponent = styled("div")(({ theme }) => ({
-    padding:"2%",
-    [theme.breakpoints.up('xs')]: {
-        height: "100px",
-        width:"100%",
-      },
-      [theme.breakpoints.up('sm')]: {
-        height: "200px",
-        width:"100%",
-      },
-      [theme.breakpoints.up('md')]: {
-        height: "300px",
-        width:"100%",
-      },
-    [theme.breakpoints.up('lg')]: {
-        height: "400px",
-        width:"100%",
-      },
-      [theme.breakpoints.up('xl')]: {
-        height: "500px",
-        width:"100%",
-      }
-  }));
-  
 const NewPost = ({ setView, topic }) => {
     const { height, width } = useWindowDimensions();
     const [title, setTitle] = useState("");

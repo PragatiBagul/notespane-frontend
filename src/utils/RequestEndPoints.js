@@ -151,3 +151,55 @@ export const fetchPostImage = (postId) => {
     const res = request(requestUrl, options);
     return res;
 }
+
+export const fetchAllFlashCards = () => {
+    const requestUrl = 'http://localhost:8080/flashcards/';
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+export const fetchPosts = () => {
+    const requestUrl = 'http://localhost:8080/post/';
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
+
+export const saveLike = (postId) => {
+    const requestUrl = 'http://localhost:8080/like/post/' + postId;
+    const options = {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        }
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
+export const deleteLike = (postId) => {
+    const requestUrl = 'http://localhost:8080/like/post/' + postId;
+    const options = {
+        method: 'DELETE',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        }
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
