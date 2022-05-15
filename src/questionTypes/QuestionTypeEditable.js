@@ -5,18 +5,17 @@ import SingleChoiceQuestionEditable from "./Editable/SingleChoiceQuestionEditabl
 import SingleWordQuestionEditable from "./Editable/SingleWordQuestionEditable";
 import MultipleChoiceQuestionEditable from "./Editable/MultipleChoiceQuestionEditable";
 import DeleteIcon from '@mui/icons-material/Delete';
-const QuestionTypeEditable = ({flashCards,setFlashCards,id}) => {
+const QuestionTypeEditable = ({mockTests,setMockTests,id}) => {
     const [question, setQuestion] = useState("");
     const [options, setOptions] = useState([]);
     const [answers, setAnswers] = useState([]);
     const [answer, setAnswer] = useState(""); 
     const [questionType, setQuestionType] = useState("swq");
-    const submit = async() => {
-        console.log(id);
-        var flashCard;
+    const submit = () => {
+        var mockTest;
         if (questionType === "swq")
         {
-            flashCard = {
+            mockTest = {
                 "questionType":questionType,
                 "question": question,
                 "answer":answer
@@ -24,7 +23,7 @@ const QuestionTypeEditable = ({flashCards,setFlashCards,id}) => {
         }
         else if (questionType === "mwq")
         {
-            flashCard = {
+            mockTest = {
                 "questionType":questionType,
                 "question": question,
                 "options": options,
@@ -33,7 +32,7 @@ const QuestionTypeEditable = ({flashCards,setFlashCards,id}) => {
         }
         else if (questionType === "scq")
         {
-            flashCard = {
+            mockTest = {
                 "questionType":questionType,
                 "question": question,
                 "options": options,
@@ -42,19 +41,19 @@ const QuestionTypeEditable = ({flashCards,setFlashCards,id}) => {
         }
         else if (questionType === "mcq")
         {
-            flashCard = {
+            mockTest = {
                 "questionType":questionType,
                 "question": question,
                 "options": options,
                 "answers":answers
             };
         }
-        let newArr = [...flashCards]; // copying the old datas array
-        newArr[id] = flashCard; // replace e.target.value with whatever you want to change it to
-        setFlashCards(newArr);
+        let newArr = [...mockTests]; // copying the old datas array
+        newArr[id] = mockTest; // replace e.target.value with whatever you want to change it to
+        setMockTests(newArr);
     }
-    const deleteFlashCard = async() => {
-        setFlashCards(flashCards.filter((flashCard,index) => index != id));
+    const deleteMockTest = async() => {
+        setMockTests(mockTests.filter((mockTest,index) => index != id));
         console.log("Deleted successfully ");
     }
     useEffect(() => {
@@ -97,7 +96,7 @@ const QuestionTypeEditable = ({flashCards,setFlashCards,id}) => {
                         <MenuItem value={"mcq"}>Multiple Choice Question</MenuItem>
                             </Select>
                     </FormControl>
-                    <IconButton flex="end" onClick={deleteFlashCard}>
+                    <IconButton flex="end" onClick={deleteMockTest}>
                         <DeleteIcon/>
                     </IconButton>
                 </Stack>

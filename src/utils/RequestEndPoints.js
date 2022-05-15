@@ -203,3 +203,150 @@ export const deleteLike = (postId) => {
     const res = request(requestUrl, options).then(response => response.data);
     return res;
 }
+
+//TaskApp Request Endpoints
+export const createTask = (body) => {
+    console.log(body);
+    const requestUrl = 'http://localhost:8080/task/create';
+    const options = {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: body
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
+export const fetchTasks = () => {
+    const requestUrl = 'http://localhost:8080/task/';
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
+export const taskUpdate = (body) => {
+    const requestUrl = 'http://localhost:8080/task/update';
+    const options = {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: body,
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
+export const taskDelete = (taskId) => {
+    const requestUrl = 'http://localhost:8080/task/delete/' + taskId;
+    const options = {
+        method: 'DELETE',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        }
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
+
+
+
+//Mock Tests Request Endpoints
+//Fetch all personal mock tests
+export const fetchMockTests = () => {
+    const requestUrl = 'http://localhost:8080/mocktests/get';
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+};
+
+//Fetch a personal mock test
+export const fetchMockTest = (id) => {
+    const requestUrl = 'http://localhost:8080/mocktests/get/' + id;
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+};
+
+//Fetch all public mock tests
+export const fetchPublicMockTests = () => {
+    const requestUrl = 'http://localhost:8080/mocktests/getPublic';
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
+//Update mock test
+export const updateMockTest = (body, id) => {
+    const requestUrl = 'http://localhost:8080/mocktests/update/' + id;
+    const options = {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: body,
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
+//Delete Mock Test
+export const deleteMockTest = (id) => {
+    const requestUrl = 'http://localhost:8080/mocktests/delete/' + id;
+    const options = {
+        method: 'DELETE',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
+//Create mock test
+export const createMockTest = (body) => {
+    const requestUrl = 'http://localhost:8080/mocktests/create/';
+    const options = {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: body
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+

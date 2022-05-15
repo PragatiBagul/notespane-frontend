@@ -7,6 +7,7 @@ import { AuthProvider } from "./hooks/useAuth";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PlayFlashCard from './flash-cards/View/PlayFlashCard';
 import { ThemeProvider } from '@mui/material/styles';
+import Error404Page from "./404Page/Error404Page";
 import THEME from "./css/THEME";
 function App() {
   return (
@@ -16,14 +17,16 @@ function App() {
       <AuthProvider>
             <Routes>
         <Route
-          path="/"
+                exact path="/"
               element={
                 <Home />
           }
         />
-        <Route path="/login" element={<Login />} />
-              <Route path="/confirm" element={<Confirm />} />
-      </Routes>
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/confirm" element={<Confirm />} />
+              <Route path="*" element={<Error404Page />} />
+            </Routes>
+
         </AuthProvider>
         </Router>
       </ThemeProvider>

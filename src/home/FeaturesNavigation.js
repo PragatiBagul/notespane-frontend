@@ -193,7 +193,7 @@ const FeaturesNavigation = ({ setCurrentNavigation }) => {
           )}
         </List>
       </Drawer>
-      <Box component="main" sx={{ p: 1 }}>
+      <Container sx={{ p: 1 }} maxWidth="xl">
         <DrawerHeader />
         {selected == "Home" && <UserHome uid={ user.uid}/>}
         {selected == "Feed" && <Feed />}
@@ -208,7 +208,7 @@ const FeaturesNavigation = ({ setCurrentNavigation }) => {
         {selected == "Music" && <MotivationalMusic />}
         {selected == "Help Guide" && <HelpGuide />}
         {selected == "Trash" && <Trash />}
-      </Box></>);
+      </Container></>);
 }
  
 export default FeaturesNavigation;

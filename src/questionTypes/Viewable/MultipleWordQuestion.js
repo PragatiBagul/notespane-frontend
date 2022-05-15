@@ -18,15 +18,16 @@ const MultipleWordQuestion = ({question,answer}) => {
             setSeverity("error");
         }
     }
-    return (<Card>
+    return (
            <FormControl
         required
         component="fieldset"
         sx={{ m: 3 }}
-        variant="standard"
+            variant="standard"
+            fullWidth
         >
         <CardContent>
-            <Typography variant="h5">{question}</Typography>
+            <Typography >{question}</Typography>
             <TextField id="standard-basic" label="Answer" variant="standard" value={userAnswer} onChange={(e) => setUserAnswer(e.target.value)}  fullWidth/>
             {severity != null && <Alert severity={severity}>
                 {severity == "success" && <><AlertTitle>Correct Answer</AlertTitle>
@@ -39,7 +40,7 @@ const MultipleWordQuestion = ({question,answer}) => {
         <Button variant="contained" onClick={submit}> OK </Button>
             </CardActions>
             </FormControl>
-    </Card>  );
+      );
 }
  
 export default MultipleWordQuestion;

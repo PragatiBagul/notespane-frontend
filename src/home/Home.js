@@ -1,6 +1,7 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import { fetchData } from "../utils/RequestEndPoints";
+import { purple } from "@mui/material/colors";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {
   Switch,
@@ -31,7 +32,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
+import useWindowDimensions from "../utils/useWindowDimensions";
 import FeaturesNavigation from "./FeaturesNavigation";
 const drawerWidth = 240;
 
@@ -99,13 +100,14 @@ export default function Home() {
 
   const [action, setAction] = useState("home");
   const [data, setData] = useState();
+  const { height, width } = useWindowDimensions();
   const [currentNavigation, setCurrentNavigation] = useState();
   const setActionTest = (value) => {
     setAction(value);
     console.log(action);
   }
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", backgroundColor: purple[50], height: height }}>
       <CssBaseline />
       <AppBar position="fixed" color="secondary">
         <Container maxWidth="xl">
@@ -238,10 +240,10 @@ export default function Home() {
           </Toolbar>
         </Container>
                 </AppBar>
-      <Container>
+      <Container maxWidth="xl">
         {action == "profile" && <UserProfile data={ data}/>}
         {action == "home" && <FeaturesNavigation setCurrentNavigation={ setCurrentNavigation}/>}
-        </Container>
+      </Container>
     </Box>
   );
 }

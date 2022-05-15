@@ -30,15 +30,16 @@ const SingleChoiceQuestion = ({question,options,answer}) => {
         setDisableAll(true);
     }
 
-    return ( <Card>
+    return ( 
              <FormControl
         required
         component="fieldset"
         sx={{ m: 3 }}
-        variant="standard"
+            variant="standard"
+            fullWidth
         >
             <CardContent>
-                <Typography variant="h5">{question}</Typography>
+                <Typography>{question}</Typography>
                 
             <RadioGroup
     aria-labelledby="demo-radio-buttons-group-label"
@@ -60,8 +61,7 @@ const SingleChoiceQuestion = ({question,options,answer}) => {
         <CardActions>
 <Button variant="contained" onClick={submit}> OK </Button>
             </CardActions>
-            </FormControl>
-    </Card> );
+            </FormControl> );
 }
 
 export default SingleChoiceQuestion;

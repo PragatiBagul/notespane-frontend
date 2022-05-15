@@ -41,15 +41,15 @@ const MultipleChoiceQuestion = ({question,options,answer}) => {
     }
 
     return (
-        <Card>
                  <FormControl
         required
         component="fieldset"
         sx={{ m: 3 }}
-        variant="standard"
+            variant="standard"
+            fullWidth
       >
         <CardContent>
-            <Typography variant="h5">{question}</Typography>
+            <Typography>{question}</Typography>
        
                 <FormGroup>
                     {options.map((option, index) => (
@@ -74,8 +74,7 @@ const MultipleChoiceQuestion = ({question,options,answer}) => {
         <CardActions>
 <Button variant="contained" onClick={submit}> OK </Button>
                 </CardActions>
-                </FormControl>
-    </Card> );
+                </FormControl> );
 }
  
 export default MultipleChoiceQuestion;

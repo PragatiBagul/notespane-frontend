@@ -23,15 +23,16 @@ const SingleWordQuestion = ({question,answer}) => {
         const s = String(str).split(" ");
         setUserAnswer(s[0]);
     }
-    return (<Card>
+    return (
             <FormControl
         required
         component="fieldset"
         sx={{ m: 3 }}
-        variant="standard"
+            variant="standard"
+            fullWidth
         >
         <CardContent>
-            <Typography variant="h5">{question}</Typography>
+            <Typography>{question}</Typography>
             <TextField id="standard-basic" label="Answer" variant="standard" value={userAnswer} onChange={(e) => limitToSingleWord(e.target.value)}  fullWidth/>
             {severity != null && <Alert severity={severity}>
                 {severity == "success" && <><AlertTitle>Correct Answer</AlertTitle>
@@ -43,8 +44,7 @@ const SingleWordQuestion = ({question,answer}) => {
         <CardActions>
         <Button variant="contained" onClick={submit}> OK </Button>
             </CardActions>
-            </FormControl>
-    </Card> );
+            </FormControl> );
 }
  
 export default SingleWordQuestion;

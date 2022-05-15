@@ -1,5 +1,5 @@
 import { Checkbox, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText,TextField } from "@mui/material";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Task.css';
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
@@ -21,6 +21,11 @@ const Task = ({taskList,setTaskList,data, index}) => {
     const handleDelete = (id) => {
         setTaskList(taskList.filter((task,index) => index != id));
     }
+    useEffect(() => {
+        let newArr = [...taskList]; // copying the old datas array
+        newArr[index] = task; // replace e.target.value with whatever you want to change it to
+        setTaskList(newArr);
+    }, [task]);
     return (
     <ListItem disablePadding key={index}>        
         <ListItemButton>

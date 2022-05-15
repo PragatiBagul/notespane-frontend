@@ -6,6 +6,7 @@ import AddTaskIcon from '@mui/icons-material/AddTask';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import NewTaskList from './TaskList/NewTaskList';
 import NewTaskContent from './TaskContent/NewTaskContent';
+import { createTask } from "../../../utils/RequestEndPoints";
 import url from "./url";
 const NewTask = ({refresh,setRefresh}) => {
     const [taskTitle, setTaskTitle] = useState("");
@@ -25,18 +26,19 @@ const NewTask = ({refresh,setRefresh}) => {
         }
     }
 
-    const addTask = (e) => {
+    const addTask = async (e) => {
         //e.preventDefault();
         emptyTaskAlert();   
         const taskType = isTaskList ? "list" : "content";
-        const t = isTaskList ? { taskTitle, taskList,taskType} : { taskTitle, taskContent,taskType};
+        const t = isTaskList ? {
+            "taskTitle": taskTitle,
+            "taskList": taskList,
+            "taskType": taskType
+        } : { "taskTitle": taskTitle, "taskContent": taskContent, "taskType": taskType };
         setIsPending(true);
-        fetch(url, {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(t)
-        }).then(() => {
-            console.log('new blog added');
+
+        const response = await createTask(t).then(() => {
+            console.log('new task added');
             setIsPending(false);
         }).then(() => {
             setTaskTitle("");
@@ -70,7 +72,7 @@ const NewTask = ({refresh,setRefresh}) => {
             }
         }
     }
-    return (<Card sx={{boxShadow:"3"}}>
+    return (<Card sx={{ boxShadow: "3", borderRadius: "15px" }}>
         <CardContent>
         <Input
             value={taskTitle}

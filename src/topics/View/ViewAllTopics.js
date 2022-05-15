@@ -3,7 +3,7 @@ import AddIcon from "@mui/icons-material/Add";
 import TopicThumbnail from "./TopicThumbail";
 import { CssBaseline } from "@mui/material";
 import useWindowDimensions from "../../utils/useWindowDimensions";
-import { deepPurple } from "@mui/material/colors";
+import { purple, deepPurple } from "@mui/material/colors";
 import React, { useState,useEffect } from 'react';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -11,6 +11,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import { getAllTopics, getAllTopicsOfUser } from "../../utils/RequestEndPoints";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LanguageIcon from '@mui/icons-material/Language';
+import Footer from "../../footer/Footer";
 const theme = createTheme();
 
 const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
@@ -33,9 +34,9 @@ const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
 
   }
   return (
-    <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <main className="infinitescroll" style={{ height: height }}>
+    <Box sx={{ backgroundColor: purple[50] }} fullWidth>
+      <Box style={{ height: height }}>
+        <Box className="infinitescroll">
       {/* Hero unit */}
       <Box
         sx={{
@@ -53,7 +54,7 @@ const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
           </Stack>
         </Stack>
 
-        <Container maxWidth="lg">
+            <Container maxWidth="xl">
           <Typography
             component="h1"
             variant="h2"
@@ -95,33 +96,17 @@ const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
           )))}
           {!isPending && topics.map((topic, i) => <TopicThumbnail key={i} topic={topic} setView={setView} setSelected={ setSelected}/>)}
           </Grid>
-        </Container>
-        </main>
-            <Fab color="primary" aria-label="add" style={{ position: "absolute", right: "0", bottom: "0", margin: "2.5%" }} onClick={() => setView("create")}>
-        <AddIcon />
-      </Fab>
-      {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-          That's all
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          You have scrolled to the end
-        </Typography>
+          </Container>
+        </Box>
       </Box>
-      {/* End footer */}
-      {isSelf && <Fab color="primary"
+
+      {/*isSelf && <Fab color="primary"
         aria-label="add"
         style={{ position: "absolute", right: "0", bottom: "0", margin: "2.5%" }}
         onClick={() => setView("create")}>
         <AddIcon />
-      </Fab>}
-    </ThemeProvider>);
+          </Fab>*/}
+    </Box>);
 }
  
 export default ViewAllTopics;

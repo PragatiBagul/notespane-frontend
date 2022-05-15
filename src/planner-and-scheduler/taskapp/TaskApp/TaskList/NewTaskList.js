@@ -2,7 +2,11 @@ import { List } from "@mui/material";
 import { useEffect, useState } from "react";
 import AddTask from "./AddTask";
 import Task from "./Task";
-const TaskList = ({taskList,setTaskList}) => {
+const TaskList = ({ taskList, setTaskList }) => {
+    useEffect(() => {
+        console.log("Task list is");
+        console.log(taskList);
+    }, [taskList]);
     return (
         <List>
             {taskList.length != 0 ? 
