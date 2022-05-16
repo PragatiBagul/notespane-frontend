@@ -1,51 +1,58 @@
-import {
-  Button,
-  List,
-  ListItem,
-  Card,
-  CardContent,
-  CardActions,
-  CardMedia,
-  Divider,
-} from "@mui/material";
-import { Link } from "react-router-dom";
-import PublicIcon from "@mui/icons-material/Public";
-
-
+import { List, ListItem, Box } from "@mui/material";
+import helpGuideData from "./helpGuideData.json";
+import { Container } from "@mui/material";
 const HelpGuide = () => {
-  return (<h1>Help Guide Here</h1>)
+  return (
+    <Container>
+      <div>
+        <h1>Help Guide Here</h1>
+        {helpGuideData.map((value, key) => {
+          return (
+            <div>
+              <List>
+                <ListItem>
+                  <Box
+                    sx={{
+                      bgcolor: "background.paper",
+                      boxShadow: 1,
+                      borderRadius: 2,
+                      p: 2,
+                      width: 1,
+                      "&:hover": {
+                        backgroundColor: "#f3e5f5",
+                      },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        color: "text.primary",
+                        fontSize: 24,
+                        fontWeight: "light",
+                      }}
+                    >
+                      {value.title}
+                    </Box>
+
+                    <Box
+                      sx={{
+                        color: "text.secondary",
+                        display: "inline",
+                        fontSize: 18,
+                      }}
+                    >
+                      <a href={value.link} target="blank">
+                        {value.link}
+                      </a>
+                    </Box>
+                  </Box>
+                </ListItem>
+              </List>
+            </div>
+          );
+        })}
+      </div>
+    </Container>
+  );
 };
 
 export default HelpGuide;
-
-    /*
-    <List>
-            {helpGuide.map((card,index)=>(<ListItem>
-          <Card>
-            <CardMedia
-              component="img"
-              alt="green iguana"
-              height="140"
-              image=""
-            />
-            <CardContent>{helpGuide.title}</CardContent>
-            <CardActions>
-              <Link
-                to={helpGuide.link}
-                target="_blank"
-                style={{ textDecoration: "none" }}
-              >
-                <Button>
-                  Visit &emsp;
-                  <PublicIcon />
-                </Button>
-              </Link>
-            </CardActions>
-          </Card>}
-        </ListItem>
-))
-    </List>}</>
-
-
-
-    */
