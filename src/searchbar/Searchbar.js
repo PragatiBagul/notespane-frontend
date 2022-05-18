@@ -89,7 +89,7 @@ export default function Searchbar() {
             <List>
               {filteredData.length !== 0 && (
                 filteredData.slice(0, 6).map((value, key) => (
-                  <ListItemButton onClick={() => { setView("userview"); setUser(value); }}>
+                  <ListItemButton key={key} onClick={() => { setView("userview"); setUser(value); }}>
                     <Box
                       sx={{
                         bgcolor: "background.paper",

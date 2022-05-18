@@ -12,6 +12,7 @@ import { getAllTopics, getAllTopicsOfUser } from "../../utils/RequestEndPoints";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LanguageIcon from '@mui/icons-material/Language';
 import Footer from "../../footer/Footer";
+import { followAnotherUser } from "../../utils/RequestEndPoints";
 const theme = createTheme();
 
 const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
@@ -31,7 +32,15 @@ const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
   }, []);
   
   const followUser = () => {
-
+    console.log(currentUser);
+    const fetch = async () => {
+      var response = await followAnotherUser(currentUser.uid);
+      console.log(response);
+      return response;
+    };
+    setTimeout(async () => {
+      const response = await fetch();
+    }, 1000);
   }
   return (
     <Box fullWidth>
@@ -60,7 +69,7 @@ const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
             variant="h2"
             align="center"
             color="white"
-            gutterBottom
+                gutterBottom
           >
             {currentUser.name}
           </Typography>
@@ -77,18 +86,18 @@ const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
             <Stack
             sx={{ pt: 4 }}
             direction="row"
-            spacing={2}
-            justifyContent="center"
-          >
-            <Tooltip title="LinkedIn"><IconButton sx={{color:"white"}}><LinkedInIcon/></IconButton></Tooltip>
-              <Tooltip title="Facebook"><IconButton sx={{color:"white"}}><FacebookIcon /></IconButton></Tooltip>
-              <Tooltip title="Website"><IconButton sx={{color:"white"}}><LanguageIcon/></IconButton></Tooltip>
-          </Stack>
-        </Container>
-        
-      </Box>
-      <Container maxWidth="xl">
-        <Grid container spacing={4}>
+                spacing={2}
+                justifyContent="center"
+              >
+                <Tooltip title="LinkedIn"><IconButton sx={{ color: "white" }}><LinkedInIcon /></IconButton></Tooltip>
+                <Tooltip title="Facebook"><IconButton sx={{ color: "white" }}><FacebookIcon /></IconButton></Tooltip>
+                <Tooltip title="Website"><IconButton sx={{ color: "white" }}><LanguageIcon /></IconButton></Tooltip>
+              </Stack>
+            </Container>
+
+          </Box>
+          <Container maxWidth="xl">
+            <Grid container spacing={4}>
           {isPending && ([...Array(24)].map((topic, i) =>(
               <Grid key={i} item xs={12} sm={12} md={4} lg={4} xl={4}>
               <Skeleton variant="rectangular" width={"100%"} height={"300px"} sx={{borderRadius:"25px"}} />
@@ -110,14 +119,13 @@ const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
           </Grid>
           </Container>
         </Box>
-      </Box>
-
-      {/*isSelf && <Fab color="primary"
+        {isSelf && <Fab color="primary"
         aria-label="add"
         style={{ position: "absolute", right: "0", bottom: "0", margin: "2.5%" }}
         onClick={() => setView("create")}>
         <AddIcon />
-          </Fab>*/}
+        </Fab>}
+      </Box>
     </Box>);
 }
  

@@ -60,6 +60,8 @@ export const updateUserDetails = (body) => {
     return res;
 }
 
+
+
 export const createTopic = (body) => {
     console.log(body);
     const requestUrl = 'http://localhost:8080/topic/create/';
@@ -72,6 +74,19 @@ export const createTopic = (body) => {
         body: body,
     };
     const res = request(requestUrl, options).then(response => response.data);    
+    return res;
+}
+
+export const followAnotherUser = (userUid) => {
+    const requestUrl = 'http://localhost:8080/follower/followUser/' + userUid;
+    const options = {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
     return res;
 }
 
@@ -273,9 +288,6 @@ export const taskDelete = (taskId) => {
     return res;
 }
 
-
-
-
 //Mock Tests Request Endpoints
 //Fetch all personal mock tests
 export const fetchMockTests = () => {
@@ -363,3 +375,15 @@ export const createMockTest = (body) => {
     return res;
 }
 
+export const fetchFollowedTopics = (uid) => {
+    const requestUrl = 'http://localhost:8080/follower/followers/user/  ' + uid;
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}

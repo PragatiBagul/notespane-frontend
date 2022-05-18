@@ -6,12 +6,14 @@ import CreateNewMockTest from "./CreateNewMockTest";
 import HomeIcon from '@mui/icons-material/Home';
 import { createMockTest } from "../../utils/RequestEndPoints";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import useWindowDimensions from "../../utils/useWindowDimensions";
+import "../../css/general.css";
 const NewMockTest = ({ setView }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [mode, setMode] = useState("public");
   const [mockTest, setMockTest] = useState([]);
-
+  const { width, height } = useWindowDimensions();
   const saveMockTest = () => {
     if (mockTest.length == 0) {
       alert("A mocktest can't have 0 questions");
@@ -32,7 +34,7 @@ const NewMockTest = ({ setView }) => {
   }
   return (
 
-    <Container sx={{ p: 2 }}>
+    <Container sx={{ p: 2, height: height }} className="infinitescroll">
       <Button onClick={() => setView("default")}><ChevronLeftIcon /> All Tests </Button>
       <Stack spacing={2}>
         <CreateNewMockTest mode={mode} setMode={setMode} title={title} setTitle={setTitle} description={description} setDescription={setDescription} saveMockTest={saveMockTest} />

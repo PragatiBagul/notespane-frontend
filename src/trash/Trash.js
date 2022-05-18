@@ -1,5 +1,13 @@
+import { Button } from "@mui/material";
+import { fetchFollowedTopics } from "../utils/RequestEndPoints";
+import { useAuth } from "../hooks/useAuth";
 const Trash = () => {
-  return <h1>Trash</h1>;
+  const { user } = useAuth();
+  const fetchSomething = async () => {
+    const response = await fetchFollowedTopics(user.uid);
+    console.log(response);
+  }
+  return <Button onClick={fetchSomething}> Click Me</Button>;
 };
 
 export default Trash;

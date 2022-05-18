@@ -8,7 +8,7 @@ import React, { useState, useEffect } from 'react';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import { getAllTopics, getAllTopicsOfUser } from "../utils/RequestEndPoints";
+import { getAllTopics, getAllTopicsOfUser, followAnotherUser } from "../utils/RequestEndPoints";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LanguageIcon from '@mui/icons-material/Language';
 import Footer from "../footer/Footer";
@@ -31,7 +31,14 @@ const ViewUser = ({ setView, setSelected, currentUser, isSelf }) => {
   }, []);
 
   const followUser = () => {
-
+    const fetch = async () => {
+      var response = await followAnotherUser(currentUser.uid);
+      console.log(response);
+      return response;
+    };
+    setTimeout(async () => {
+      const response = await fetch();
+    }, 1000);
   }
   return (
     <Box fullWidth>
