@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import { createPost, addPostContent } from "../../utils/RequestEndPoints";
 import Dropzone from "./Dropzone";
 import "./NewPost";
-
+import "../../css/general.css";
 const NewPost = ({ setView, topic }) => {
     const { height, width } = useWindowDimensions();
     const [title, setTitle] = useState("");
@@ -40,7 +40,7 @@ const NewPost = ({ setView, topic }) => {
         setView("viewTopic");
     }
     return (
-        <Box className="infinitescroll" style={{ height: height }}>
+        <Box className="infinitescroll" style={{ height: height, marginBottom: "3%" }}>
             {/*<Typography variant="h4">
           Topics
     </Typography>*/}
