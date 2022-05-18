@@ -20,6 +20,19 @@ export const userSignJWTVerification = (user) => {
     return res;
 };
 
+export const fetchUsers = () => {
+    const requestUrl = 'http://localhost:8080/user/all';
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
 export const fetchUserProfile =(userId) => {
     const requestUrl = 'http://localhost:8080/user/'+userId;
     const options = {

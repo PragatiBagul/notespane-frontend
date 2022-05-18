@@ -2,7 +2,7 @@ import { Card, CardHeader, Skeleton, CardContent } from "@mui/material";
 import React from 'react';
 
 const PostSkeleton = () => {
-    return ( <Card sx={{ maxWidth: 345, m: 2 }}>
+  return (<Card sx={{ width: 356, maxWidth: 356, m: 2 }}>
         <CardHeader
           avatar={
             <Skeleton animation="wave" variant="circular" width={40} height={40} />}

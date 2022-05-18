@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Container, Grid } from "@mui/material";
+import { Container, Divider, Grid, Box, Typography } from "@mui/material";
 import "./calculator.css";
-
+import "../css/general.css";
+import { purple } from "@mui/material/colors";
 import { btns, BTN_ACTIONS } from "./btnConfig";
 
 const Calculator = () => {
@@ -84,7 +85,31 @@ const Calculator = () => {
     }, 100);
   };
 
+
+
   return (
+    <Box sx={{ padding: "0.25 %" }}>
+      <Box
+        sx={{
+          backgroundColor: purple[500],
+          borderRadius: '15px',
+          mt: -5,
+          pt: 1,
+          pb: 1,
+        }}
+      >
+        <Container maxWidth="xl">
+          <Typography
+            component="h3"
+            variant="h3"
+            align="center"
+            color="white"
+            gutterBottom
+          >
+            Calculator
+          </Typography>
+        </Container>
+      </Box>
     <Grid container justifyContent="center">
       <div className="calculator">
         <div className="calculator__result">
@@ -103,7 +128,8 @@ const Calculator = () => {
           ))}
         </div>
       </div>
-    </Grid>
+      </Grid>
+    </Box>
   );
 };
 

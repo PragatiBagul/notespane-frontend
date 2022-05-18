@@ -8,14 +8,16 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ScrollTop from './ScrollTop';
 import { purple, deepPurple } from "@mui/material/colors";
 import url from "./url";
+import useWindowDimensions from "../../../utils/useWindowDimensions";
 import { fetchTasks } from '../../../utils/RequestEndPoints';
 import { useAuth } from "../../../hooks/useAuth";
+import Footer from "../../../footer/Footer";
 const TaskApp = (props) => {
   const { user } = useAuth();
   const [refresh, setRefresh] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [isPending, setIsPending] = useState(true);
-
+  const { width, height } = useWindowDimensions();
   useEffect(() => {
     console.log(user);
     console.log("Refreshing .. ");
@@ -33,6 +35,9 @@ const TaskApp = (props) => {
   return (
     <>
       {/*<CssBaseline />*/}
+      <Box className="infinitescroll" sx={{ height: height }}>
+        <React.Fragment>
+          <CssBaseline />
       <Toolbar id="back-to-top-anchor" />
       <Box style={{ backgroundColor: purple[50], padding: "0.25 %" }} maxWidth="100%">
         <Box
@@ -74,7 +79,10 @@ const TaskApp = (props) => {
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
-      </ScrollTop>
+          </ScrollTop>
+        </React.Fragment>
+        <Footer />
+      </Box>
     </>
     );
 }

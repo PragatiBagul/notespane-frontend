@@ -2,7 +2,7 @@ import { Card, Box, CardContent, Container, Chip, Button, Grid, CardHeader, Avat
 import { useAuth } from "../../hooks/useAuth";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from "react";
-import { deepPurple } from "@mui/material/colors";
+import { purple } from "@mui/material/colors";
 import AttachmentIcon from '@mui/icons-material/Attachment';
 import RuleOutlinedIcon from "@mui/icons-material/RuleOutlined";
 import StyleOutlinedIcon from "@mui/icons-material/StyleOutlined";
@@ -40,19 +40,19 @@ const NewPost = ({ setView, topic }) => {
         setView("viewTopic");
     }
     return (
-        <Box className="infinitescroll" style={{ height: height, padding: "2%", backgroundColor: deepPurple[50] }}>
+        <Box className="infinitescroll" style={{ height: height }}>
             {/*<Typography variant="h4">
           Topics
     </Typography>*/}
             <Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-start" sx={{ mb: 5 }}>
                 <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
-                    <Button variant="outlined" sx={{ color: "primary" }} onClick={() => setView("viewTopic")}><ChevronLeftIcon />&nbsp;Back</Button>
+                    <Button variant="outlined" sx={{ color: "secondary" }} onClick={() => setView("viewTopic")}><ChevronLeftIcon />&nbsp;Back</Button>
                 </Stack>
             </Stack>
 
             <Card style={{ borderRadius: "25px" }}>
                 <CardHeader
-                    sx={{ backgroundColor: deepPurple[500], color: "white", }}
+                    sx={{ backgroundColor: purple[500], color: "white", }}
                     avatar={
                         <Avatar alt={user.displayName} src={user.photoURL} />
                     }

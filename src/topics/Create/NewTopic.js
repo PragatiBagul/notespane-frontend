@@ -1,6 +1,6 @@
 import { Card,CardActions,Box,CardContent,Button, CardHeader,Avatar,IconButton,Divider, TextField, Typography, Stack,Tooltip,FormControl,InputLabel,Select,MenuItem } from "@mui/material";
 import { useState } from "react";
-import { deepPurple } from "@mui/material/colors";
+import { purple } from "@mui/material/colors";
 import { useAuth } from "../../hooks/useAuth";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {getDate} from "../../utils/GetDate";
@@ -22,7 +22,7 @@ const NewTopic = ({setView}) => {
       setView("view");
     }
     return (
-        <Box className="infinitescroll" style={{ height: height, padding: "2%", backgroundColor: deepPurple[50] }}>
+      <Box className="infinitescroll" style={{ height: height, padding: "2%", backgroundColor: purple[50] }}>
         <Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-start" sx={{ mb: 5 }}>
           <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
             <Button variant="outlined" sx={{color:"primary"}} onClick={() => setView("view")}><ChevronLeftIcon/>&nbsp;Back</Button>
@@ -30,7 +30,7 @@ const NewTopic = ({setView}) => {
         </Stack>
         <Card style={{ borderRadius: "25px" }}>
     <CardHeader
-        sx={{backgroundColor:deepPurple[500],color:"white",}}
+            sx={{ backgroundColor: purple[500], color: "white", }}
     avatar={
         <Avatar alt={user.displayName} src={user.photoURL} />
     }

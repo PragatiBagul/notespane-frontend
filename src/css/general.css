@@ -4,6 +4,10 @@
     scrollbar-width: none;
     /* for Firefox */
     overflow-y: scroll;
+    position: static;
+        background-repeat: repeat;
+        background-color: "#f3e5f5";
+        background-position: inherit;
 }
 
 .infinitescroll::-webkit-scrollbar {

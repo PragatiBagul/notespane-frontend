@@ -1,11 +1,15 @@
 import { List, ListItem, Box } from "@mui/material";
 import helpGuideData from "./helpGuideData.json";
-import { Container } from "@mui/material";
+import { Typography, Container } from "@mui/material";
+import { purple } from "@mui/material/colors";
+import "../css/general.css";
+import useWindowDimensions from "../utils/useWindowDimensions";
 const HelpGuide = () => {
+  const { height, width } = useWindowDimensions();
   return (
-    <Container>
+    <Box className="infinitescroll" style={{ width: "100%", height: height, padding: 2 }}>
       <div>
-        <h1>Help Guide Here</h1>
+        <Typography variant="h3" sx={{ color: "#4a148c", padding: 2 }}>Help Guide Here</Typography>
         {helpGuideData.map((value, key) => {
           return (
             <div>
@@ -19,7 +23,8 @@ const HelpGuide = () => {
                       p: 2,
                       width: 1,
                       "&:hover": {
-                        backgroundColor: "#f3e5f5",
+                        backgroundColor: "white",
+                        boxShadow: 8
                       },
                     }}
                   >
@@ -51,7 +56,7 @@ const HelpGuide = () => {
           );
         })}
       </div>
-    </Container>
+    </Box>
   );
 };
 

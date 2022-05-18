@@ -34,7 +34,7 @@ const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
 
   }
   return (
-    <Box sx={{ backgroundColor: purple[50] }} fullWidth>
+    <Box fullWidth>
       <Box style={{ height: height }}>
         <Box className="infinitescroll">
       {/* Hero unit */}
@@ -94,6 +94,18 @@ const ViewAllTopics = ({ setView,setSelected,currentUser,isSelf }) => {
               <Skeleton variant="rectangular" width={"100%"} height={"300px"} sx={{borderRadius:"25px"}} />
            </Grid>
           )))}
+              {!isPending && topics.length == 0 && <Box component="span" sx={{
+                p: 2,
+                m: 4,
+                border: '1px dashed grey',
+                height: "500",
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}>
+                <Typography variant='inherit'>No topics yet</Typography>
+              </Box>}
           {!isPending && topics.map((topic, i) => <TopicThumbnail key={i} topic={topic} setView={setView} setSelected={ setSelected}/>)}
           </Grid>
           </Container>

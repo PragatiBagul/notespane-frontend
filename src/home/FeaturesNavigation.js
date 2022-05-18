@@ -1,6 +1,7 @@
 /*Importing Indigenous Components */
 import UserHome from "../user/UserHome";
 import Feed from "../feed/Feed";
+import Searchbar from "../searchbar/Searchbar"
 import Calculator from "../calculator/Calculator";
 import FlashCards from "../flash-cards/FlashCards";
 import MockTests from "../mock-tests/MockTests";
@@ -29,7 +30,7 @@ import QueueMusicOutlinedIcon from "@mui/icons-material/QueueMusicOutlined";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 import HelpCenterOutlinedIcon from "@mui/icons-material/HelpCenterOutlined";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
-
+import SearchIcon from "@mui/icons-material/Search";
 import MuiDrawer from "@mui/material/Drawer";
 
 import {
@@ -110,6 +111,8 @@ const openedMixin = (theme) => ({
         return <HomeOutlinedIcon/>
       case "Feed":
         return <DynamicFeedOutlinedIcon />;
+      case "Search":
+        return <SearchIcon />;
       case "Mock Tests":
         return <RuleOutlinedIcon />;
       case "Notebook":
@@ -122,7 +125,7 @@ const openedMixin = (theme) => ({
         return <StyleOutlinedIcon />;
       case "Calculator":
         return <CalculateOutlinedIcon />;
-      case "Planner":
+      case "Tasks":
         return <FactCheckOutlinedIcon />;
       case "Schedule":
         return <EventOutlinedIcon />;
@@ -163,15 +166,15 @@ const FeaturesNavigation = ({ setCurrentNavigation }) => {
         <List>
         {[
             "Home",
-            "Feed",
+          "Feed",
+          "Search",
             "Mock Tests",
             "Notebook",
-            "Courses",
-            "Saved",
-            "Flash Cards",
-            "Calculator",
-            "Planner",
-            "Schedule",
+          "Courses",
+          "Flash Cards",
+          "Tasks",
+          "Saved",
+          "Calculator",
             "Music",
             "Help Guide",
             "Trash",
@@ -197,14 +200,14 @@ const FeaturesNavigation = ({ setCurrentNavigation }) => {
         <DrawerHeader />
         {selected == "Home" && <UserHome uid={ user.uid}/>}
         {selected == "Feed" && <Feed />}
+        {selected == "Search" && <Searchbar />}
         {selected == "Mock Tests" && <MockTests />}
         {selected == "Notebook" && <Notebook />}
         {selected == "Courses" && <Courses />}
         {selected == "Saved" && <Saved />}
         {selected == "Flash Cards" && <FlashCards />}
         {selected == "Calculator" && <Calculator />}
-        {selected == "Planner" && <TaskApp />}
-        {selected == "Schedule" && <TaskApp />}
+        {selected == "Tasks" && <TaskApp />}
         {selected == "Music" && <MotivationalMusic />}
         {selected == "Help Guide" && <HelpGuide />}
         {selected == "Trash" && <Trash />}

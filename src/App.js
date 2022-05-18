@@ -11,7 +11,7 @@ import Error404Page from "./404Page/Error404Page";
 import THEME from "./css/THEME";
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ overflowY: "hidden" }}>
       <ThemeProvider theme={THEME}>
       <Router>
       <AuthProvider>
