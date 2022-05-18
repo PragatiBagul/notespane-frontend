@@ -4,25 +4,36 @@ import QuestionType from "../../questionTypes/QuestionType";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { fetchMockTest } from "../../utils/RequestEndPoints";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import Preloader from "../../preloader/Preloader";
+import useWindowDimensions from "../../utils/useWindowDimensions";
 const MockTest = ({ setView, id }) => {
     const [cards, setCards] = useState([]);
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
-    const [isPending, setIsPending] = useState(true);
-    useEffect(() => {
-        setTimeout(() => {
-            const response = fetchMockTest(id);
-            setTitle(response.title);
-            setDescription(response.description);
-            setCards(response.mockTests);
-            setIsPending(false);
-        }, 1000);
-    }, []);
+  const [isPending, setIsPending] = useState(true);
+  const [refresh, setRefresh] = useState(false);
+  const { width, height } = useWindowDimensions();
+  useEffect(() => {
+    var fetch = async () => {
+      var response = await fetchMockTest(id);
+      return response;
+    };
+    setTimeout(async () => {
+      const response = await fetch();
+      console.log(response);
+      setTitle(response.title);
+      setDescription(response.description);
+      setCards(response.mocktestData);
+      setIsPending(false);
+      setRefresh(true);
+    }, 1000);
+  }, [refresh]);
     return (
-        <>
+      <Box className="infinitescroll" sx={{ height: height }}>
+        {isPending && <Preloader />}
             {!isPending && (
           <Box sx={{ padding: "2%" }}>
-            <Button onClick={setView("default")}><ChevronLeftIcon/> All Tests </Button>
+            <Button onClick={() => setView("default")}><ChevronLeftIcon /> All Tests </Button>
                 <Stack  spacing={2}>
                         <Accordion>
         <AccordionSummary
@@ -38,10 +49,10 @@ const MockTest = ({ setView, id }) => {
           </Typography>
         </AccordionDetails>
                     </Accordion>
-                    {cards.map((card, index) => (
+              {cards != null && cards.length > 0 && cards.map((card, index) => (
                         <QuestionType card={card}/>
-                    ))}
-                    </Stack></Box>)}</>      );
+              ))}
+            </Stack></Box>)}</Box>);
 }
  
 export default MockTest;

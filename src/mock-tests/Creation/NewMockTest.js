@@ -1,4 +1,4 @@
-import { Container, Stack, Divider, Button } from "@mui/material";
+import { Container, Box, Stack, Divider, Button } from "@mui/material";
 import QuestionTypeEditable from "../../questionTypes/QuestionTypeEditable";
 import NewMockTestThumbnail from "./NewMockTestThumbnail";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { createMockTest } from "../../utils/RequestEndPoints";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import useWindowDimensions from "../../utils/useWindowDimensions";
+
 import "../../css/general.css";
 const NewMockTest = ({ setView }) => {
   const [title, setTitle] = useState("");
@@ -34,7 +35,7 @@ const NewMockTest = ({ setView }) => {
   }
   return (
 
-    <Container sx={{ p: 2, height: height }} className="infinitescroll">
+    <Box sx={{ p: 2, height: height }} className="infinitescroll">
       <Button onClick={() => setView("default")}><ChevronLeftIcon /> All Tests </Button>
       <Stack spacing={2}>
         <CreateNewMockTest mode={mode} setMode={setMode} title={title} setTitle={setTitle} description={description} setDescription={setDescription} saveMockTest={saveMockTest} />
@@ -44,7 +45,7 @@ const NewMockTest = ({ setView }) => {
         ))}
         <NewMockTestThumbnail mockTests={mockTest} setMockTests={setMockTest} />
       </Stack>
-    </Container>);
+    </Box>);
 }
 
 export default NewMockTest;
