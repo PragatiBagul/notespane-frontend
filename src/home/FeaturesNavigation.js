@@ -202,7 +202,7 @@ const FeaturesNavigation = ({ setCurrentNavigation }) => {
         {selected == "Feed" && <Feed />}
         {selected == "Search" && <Searchbar />}
         {selected == "Mock Tests" && <MockTests />}
-        {selected == "Notebook" && <Notebook />}
+        {selected == "Notebook" && <Notebook placeholder={"Write something..."} />}
         {selected == "Courses" && <Courses />}
         {selected == "Saved" && <Saved />}
         {selected == "Flash Cards" && <FlashCards />}
