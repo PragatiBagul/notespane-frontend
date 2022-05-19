@@ -5,6 +5,7 @@ notebook {
   
   .app {
     margin: 1rem 4rem;
+    height: max-content;
   }
   
   .app .ql-container {

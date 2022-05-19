@@ -1,14 +1,14 @@
 import { Grid, Card, CardContent, Typography, CardMedia, CardActionArea, CardActions, Button } from "@mui/material";
 import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
-const FlashCardThumbnail = ({flashCard,setView,setId}) => {
+const FlashCardThumbnail = ({ flashCard, setView, setFlashCard }) => {
     return (
         <Grid item xs={12} sm={12} md={6} lg={3} xl={3} style={{padding:'1.5%'}}>
-        <Card sx={{ maxWidth: 345 }} onClick={() => { setView("play"); setId(flashCard.id); }}>
+        <Card sx={{ maxWidth: 345 }} onClick={() => { setView("play"); setFlashCard(flashCard); }}>
         <CardActionArea>
           <CardMedia
             component="img"
             height="140"
-            image="https://www.denofgeek.com/wp-content/uploads/2022/02/iron-man-doctor-strange-avengers-infinity-war.jpg?fit=1280%2C720"
+              image="https://www.pngitem.com/pimgs/m/25-254660_transparent-flashcards-clipart-flashcard-png-png-download.png"
             alt="green iguana"
           />
           <CardContent>
@@ -23,7 +23,7 @@ const FlashCardThumbnail = ({flashCard,setView,setId}) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-            <Button size="small" color="primary" onClick={(e) => { setView("play"); setId(flashCard.id); }}>
+            <Button size="small" color="primary" onClick={(e) => { setView("play"); setFlashCard(flashCard); }}>
             <ViewCarouselIcon/> &nbsp;Play 
           </Button>
         </CardActions>

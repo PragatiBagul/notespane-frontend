@@ -120,7 +120,7 @@ export default function ViewTopic({ setView, topic,isSelf }) {
       </main>
       {/* Footer */}
       {/* End footer */}
-      {isSelf && <Fab color="primary"
+      {isSelf && <Fab color="secondary"
         aria-label="add"
         style={{ position: "absolute", right: "0", bottom: "0", margin: "2.5%" }}
         onClick={() => setView("newPost")}>

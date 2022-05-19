@@ -43,7 +43,7 @@ const ViewAllMockTests = ({ setView, setId }) => {
                     <Grid container spacing={2}>{!isPending && publicMockTests.map((mockTest, index) => (
                         <MockTestThumbnail key={index} mockTest={mockTest} setView={setView} setId={setId} />
                     ))}</Grid>
-                    <Fab color="primary" aria-label="add" style={{ position: "absolute", right: "0", bottom: "0", margin: "2.5%" }} onClick={() => setView("create")}>
+                    <Fab color="secondary" aria-label="add" style={{ position: "absolute", right: "0", bottom: "0", margin: "2.5%" }} onClick={() => setView("create")}>
                         <AddIcon />
                     </Fab>
                 </Container>

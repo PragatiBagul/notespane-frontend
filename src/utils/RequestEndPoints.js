@@ -1,5 +1,6 @@
 import request from "./Request";
 import { useState } from "react";
+import { BorderStyle } from "@mui/icons-material";
 export const userSignJWTVerification = (user) => {
     const body = {
         "Name": user.displayName,
@@ -181,7 +182,7 @@ export const fetchPostImage = (postId) => {
 }
 
 export const fetchAllFlashCards = () => {
-    const requestUrl = 'http://localhost:8080/flashcards/';
+    const requestUrl = 'http://localhost:8080/flashcard/';
     const options = {
         method: 'GET',
         headers: {
@@ -375,8 +376,39 @@ export const createMockTest = (body) => {
     return res;
 }
 
-export const fetchFollowedTopics = (uid) => {
-    const requestUrl = 'http://localhost:8080/follower/followers/user/  ' + uid;
+//Flash Card End points
+//FlashCards Request Endpoints
+//Fetch all personal flashcard
+export const fetchFlashCards = () => {
+    const requestUrl = 'http://localhost:8080/flashcard/get';
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+};
+
+//Fetch a personal mock test
+export const fetchFlashCard = (id) => {
+    const requestUrl = 'http://localhost:8080/flashcard/get/' + id;
+    const options = {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+};
+
+//Fetch all public flashcard
+export const fetchPublicFlashCards = () => {
+    const requestUrl = 'http://localhost:8080/flashcard/getPublic';
     const options = {
         method: 'GET',
         headers: {
@@ -387,3 +419,49 @@ export const fetchFollowedTopics = (uid) => {
     const res = request(requestUrl, options).then(response => response.data);
     return res;
 }
+
+//Update mock test
+export const updateFlashCard = (body, id) => {
+    const requestUrl = 'http://localhost:8080/flashcard/update/' + id;
+    const options = {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: body,
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
+//Delete FlashCard
+export const deleteFlashCard = (id) => {
+    const requestUrl = 'http://localhost:8080/flashcard/delete/' + id;
+    const options = {
+        method: 'DELETE',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
+//Create mock test
+export const createFlashCard = (body) => {
+    const requestUrl = 'http://localhost:8080/flashcard/create/';
+    console.log(body);
+    const options = {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: body
+    };
+    const res = request(requestUrl, options).then(response => response.data);
+    return res;
+}
+
