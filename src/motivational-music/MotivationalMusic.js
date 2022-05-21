@@ -1,92 +1,67 @@
-import React from "react";
-import CardContent from "@mui/material/CardContent";
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
-import SkipNextIcon from "@mui/icons-material/SkipNext";
+import * as React from "react";
 import { useTheme } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import CardMedia from "@mui/material/CardMedia";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
+import meditation_svg from "./images/meditation_girl.svg";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 
-export default function MotivationalMusic() {
+export default function MotivationalMusic() {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+  const theme = useTheme();
   const playAudio = () => {
     const audioEl = document.getElementsByClassName("audio-element")[0];
     audioEl.play();
-  };
+  };                                                                                                                
 
   return (
-    <div style={{}}>
-      <h4>How to create Music Player UI in ReactJS?</h4>
-      <Card
-        style={{
-          width: 400,
-          display: "flex",
-          backgroundColor: "whitesmoke",
-          boxShadow: "4px 4px 4px gray",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <CardContent
-            style={{
-              flex: "1 0 auto",
-            }}
+    <Card sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <CardContent sx={{ flex: "1 0 auto" }}>
+          <Typography component="div" variant="h5">
+            Live From Space
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            color="text.secondary"
+            component="div"
           >
-            <Typography component="h5" variant="h5">
-              Music Title
-            </Typography>
-            <Typography variant="subtitle1" color="textSecondary">
-              Singer Name
-            </Typography>
-          </CardContent>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              paddingLeft: 1,
-              paddingBottom: 1,
-            }}
-          >
-            <IconButton aria-label="previous">
-              {useTheme().direction !== "rtl" ? (
-                <SkipPreviousIcon />
-              ) : (
-                <SkipNextIcon />
-              )}
-            </IconButton>
-            <IconButton aria-label="play/pause">
-              <PlayArrowIcon
-                style={{
-                  height: 38,
-                  width: 38,
-                }}
-                onClick={playAudio}
-              />
-            </IconButton>
-            <IconButton aria-label="next">
-              {useTheme().direction !== "rtl" ? (
-                <SkipNextIcon />
-              ) : (
-                <SkipPreviousIcon />
-              )}
-            </IconButton>
-          </div>
-        </div>
-        <CardMedia
-          style={{
-            width: 151,
-          }}
-          image="https://write.geeksforgeeks.org/static/media/Group%20210.08204759.svg"
-        />
-        <audio className="audio-element">
-          <source src="https://assets.coderrocketfuel.com/pomodoro-times-up.mp3"></source>
-        </audio>
-      </Card>
-    </div>
+            Mac Miller
+          </Typography>
+        </CardContent>
+        <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
+          <IconButton aria-label="previous">
+            {theme.direction === "rtl" ? (
+              <SkipNextIcon />
+            ) : (
+              <SkipPreviousIcon />
+            )}
+          </IconButton>
+          <IconButton aria-label="play/pause">
+            <PlayArrowIcon sx={{ height: 38, width: 38 }} onClick={playAudio} />
+          </IconButton>
+          <IconButton aria-label="next">
+            {theme.direction === "rtl" ? (
+              <SkipPreviousIcon />
+            ) : (
+              <SkipNextIcon />
+            )}
+          </IconButton>
+        </Box>
+      </Box>
+      <CardMedia
+        component="img"
+        sx={{ width: 151 }}
+        image={meditation_svg}
+        alt="Live from space album cover"
+      />
+      <audio className="audio-element">
+        <source src="https://assets.coderrocketfuel.com/pomodoro-times-up.mp3"></source>
+      </audio>
+    </Card>
   );
 }
